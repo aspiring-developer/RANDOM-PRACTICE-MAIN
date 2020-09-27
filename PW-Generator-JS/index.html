@@ -15,13 +15,13 @@
 
 <body>
   <!-- Main wrapper -->
-  <div class="container-fluid mx-0 px-0">
+  <div class="container mainWrapper">
     <!-- !########## HEADER SECTION  ########## -->
     <header>
       <div class="row text-center bg-dark text-white py-4 px-3 mainSection1Row">
         <div class="col">
           <h1 class="text-center text-white text-uppercase font-weight-bold mt-5"> Random Password Generator <br> </h1>
-          <p class="text-center text-white my-3"> <em> Create a secure random password. </em> </p>
+          <p class="text-center text-white my-3"> <em> Create a secure random password </em> </p>
         </div>
       </div>
     </header> <!-- header ends-->
@@ -30,24 +30,40 @@
     <section>
       <div class="row my-4 mainSection2Row">
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
-        <div class="col p-5 bg-light text-center">
-          <h4 class="text-dark p-3" id="greetingTexts"> This is h4 text field. What do you want here? </h4>
+        <div class="col p-3 bg-light text-center">
+          <h4 class="text-light p-3 bg-info w-50 m-auto" id="greetingTexts"> Your Password will Display Here. </h4>
           <!-- input group -->
-          <div class="input-group mx-auto">
-            <input type="text" class="form-control text-center">
-          </div> <!-- input group ends -->
-          <p class="text-secondary pb-3 py-2"> This is a paragraph field. </p>
-          <a href="#"><button type="button" class="btn btn-warning " id="frontLgBtn"> I am a button :) </button> </a>
-        </div>
-        <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-      </div> <!-- .mainSection2Row ends -->
+
+          <div id="passwordDisplayField" class="col text-center">
+            <br />
+          </div>
+          <div class="col">
+            <form>
+              <label for="characterRange">
+                <h5 class="mt-2 mb-2 font-weight-bold">Choose Desired Password Length:</h5><input type="range" class="w-100" min="8" max="128" value="8" />
+              </label>
+              <label for="characterCount"> <input type="number" class="w-75" min="8" max="128" value="8" />
+              </label> <br />
+              <h5 class="mt-2 font-weight-bold">Choose Character types:</h5>
+              <p class="m-2"> Uppercase Letters: <input type="checkbox" /> </p>
+              <p class="m-2">Lowercase Letters: <input type="checkbox" /> </p>
+              <p class="m-2">Numbers: <input type="checkbox" /> </p>
+              <p class="m-2"> Symbols: <input type="checkbox" />
+              </p>
+              <a href="#"><button type="button" class="btn btn-info mt-4" id="frontLgBtn"> Generate Password </button> </a>
+            </form>
+          </div>
+
+
+          <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+        </div> <!-- .mainSection2Row ends -->
     </section> <!-- Main section -2 ends -->
 
     <!-- !########## FOOTER SECTION ########## -->
     <footer>
       <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
       <div class="text-center bg-dark text-white py-4 px-3">
-        <p> &copy;2020 &bull; The app's more info goes here. &bull; City &bull; State &bull; 919-123-4567 </p>
+        <p> &copy;2020 &bull; Random Password Generator App </p>
       </div> <!-- footer lower texts block ends -->
       <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
     </footer> <!-- footer ends-->
