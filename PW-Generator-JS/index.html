@@ -31,26 +31,22 @@
       <div class="row my-4 mainSection2Row">
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
         <div class="col p-3 bg-light text-center">
-          <h4 class="text-light p-3 bg-info w-50 m-auto" id="greetingTexts"> Generated Password will Display Here. </h4>
-          <!-- input group -->
+          <h4 class="text-light p-3 bg-info w-50 m-auto" id="passwordDisplayField"> Generated Password will Display Here. </h4>
 
-          <div id="passwordDisplayField" class="col text-center">
-            <br />
-          </div>
-          <div class="col">
-            <form>
+          <div class="col mt-4">
+            <form id="mainForm">
               <label for="characterRange">
-                <h5 class="mt-2 mb-2 font-weight-bold">Choose Desired Password Length:</h5><input type="range" class="w-100" min="8" max="128" value="8" />
+                <h5 class="mt-2 mb-2 font-weight-bold">Choose Desired Password Length:</h5><input type="range" id="rangeLength" class="w-100" min="8" max="128" value="8" />
               </label>
-              <label for="characterCount"> <input type="number" class="w-75" min="8" max="128" value="8" />
+              <label for="characterCount"> <input type="number" id="characterLength" class="w-75" min="8" max="128" value="8" />
               </label> <br />
               <h5 class="mt-2 font-weight-bold">Choose Character types:</h5>
-              <p class="m-2"> Uppercase Letters: <input type="checkbox" /> </p>
-              <p class="m-2">Lowercase Letters: <input type="checkbox" /> </p>
-              <p class="m-2">Numbers: <input type="checkbox" /> </p>
-              <p class="m-2"> Symbols: <input type="checkbox" />
+              <p class="m-2"> Uppercase Letters: <input type="checkbox" id="uppercaseChoice" /> </p>
+              <p class="m-2">Lowercase Letters: <input type="checkbox" id="lowercaseChoice" /> </p>
+              <p class="m-2">Numbers: <input type="checkbox" id="numbersChoice" /> </p>
+              <p class="m-2"> Symbols: <input type="checkbox" id="symbolsChoice" />
               </p>
-              <a href="#"><button type="button" class="btn btn-info mt-4 p-3" id="frontLgBtn"> Generate Password </button> </a>
+              <a href="#"><button type="button" class="btn btn-info mt-4 p-3" id="generateButton"> Generate Password </button> </a>
             </form>
           </div>
 
