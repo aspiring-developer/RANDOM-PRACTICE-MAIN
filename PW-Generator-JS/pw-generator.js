@@ -41,4 +41,17 @@ const symbolsAscii = asciiMinMaxValues(33, 47)
 // Create a "submit-event" event listener to the form
 formFieldEl.addEventListener("submit", function (e) {
   e.preventDefault();
+  const desiredCharacterCount = characterLengthEl.value;
+  const selectedUppercase = uppercaseChoiceEl.checked;
+  const selectedLowercase = lowercaseChoiceEl.checked;
+  const selectedNumbers = numbersChoiceEl.checked;
+  const selectedSymbols = symbolsChoiceEl.checked;
+  const password = generatePassword(
+    desiredCharacterCount,
+    selectedUppercase,
+    selectedLowercase,
+    selectedNumbers,
+    selectedSymbols
+  );
+  passwordFieldEl.innerHtml = password;
 });
