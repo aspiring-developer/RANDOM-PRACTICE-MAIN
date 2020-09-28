@@ -31,22 +31,26 @@
       <div class="row my-4 mainSection2Row">
         <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
         <div class="col p-3 bg-light text-center">
-          <h4 class="text-light p-3 bg-info w-50 m-auto" id="passwordDisplay"> Generated Password will Display Here. </h4>
+          <h4 class="text-light p-3 bg-info w-75 m-auto" id="passwordDisplay"> Generated Password will Display Here. </h4>
 
           <div class="col mt-4">
-            <form id="passwordGeneratorForm">
-              <label for="characterAmountRange">
-                <h5 class="mt-2 mb-2 font-weight-bold">Choose Desired Password Length:</h5><input type="range" id="characterAmountRange" class="w-100" min="8" max="128" value="8" />
-              </label>
-              <label for="characterAmountNumber"> Number of Characters <input type="number" id="characterAmountNumber" class="w-75" min="8" max="128" value="8" />
-              </label> <br />
-              <h5 class="mt-2 font-weight-bold">Choose Character types:</h5>
-              <p class="m-2"> Uppercase Letters: <input type="checkbox" id="includeUppercase" /> </p>
-              <!-- <p class="m-2">Lowercase Letters: <input type="checkbox" id="lowercaseChoice" /> </p> -->
-              <p class="m-2">Numbers: <input type="checkbox" id="includeNumbers" /> </p>
-              <p class="m-2"> Symbols: <input type="checkbox" id="includeSymbols" />
-              </p>
-              <a href="#"><button type="button" class="btn btn-info mt-4 p-3" id="generateButton"> Generate Password </button> </a>
+            <form id="passwordGeneratorForm" class="form">
+              <h5> <label for="characterAmountNumber">Number Of Characters</label> </h5>
+              <div class="character-amount-container">
+                <input type="range" class="w-50" min="8" max="128" value="8" id="characterAmountRange">
+                <input type="number" class="text-center" min="8" max="128" value="8" id="characterAmountNumber">
+              </div>
+              <br />
+              <h6><label for="includeUppercase">Include Uppercase</label>
+                <input type="checkbox" id="includeUppercase"> </h6>
+              <br />
+              <h6><label for="includeNumbers">Include Numbers</label>
+                <input type="checkbox" id="includeNumbers"> </h6>
+              <br />
+              <h6><label for="includeSymbols">Include Symbols</label>
+                <input type="checkbox" id="includeSymbols"> </h6>
+              <br />
+              <button type="submit" class="btn btn-info p-3">Generate Password</button>
             </form>
           </div>
 
