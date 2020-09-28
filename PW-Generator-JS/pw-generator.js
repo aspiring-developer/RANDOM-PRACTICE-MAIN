@@ -43,15 +43,48 @@ formFieldEl.addEventListener("submit", function (e) {
   e.preventDefault();
   const desiredCharacterCount = characterLengthEl.value;
   const selectedUppercase = uppercaseChoiceEl.checked;
-  const selectedLowercase = lowercaseChoiceEl.checked;
+  //const selectedLowercase = lowercaseChoiceEl.checked;
   const selectedNumbers = numbersChoiceEl.checked;
   const selectedSymbols = symbolsChoiceEl.checked;
   const password = generatePassword(
     desiredCharacterCount,
     selectedUppercase,
-    selectedLowercase,
+    //selectedLowercase,
     selectedNumbers,
     selectedSymbols
   );
-  passwordFieldEl.innerHtml = password;
+  passwordFieldEl.innerText = password;
 });
+
+// TODO Block 5: Generate the password
+// Create a function to generate password
+function generatePassword(
+  desiredCharacterCount,
+  selectedUppercase,
+  //selectedLowercase,
+  selectedNumbers,
+  selectedSymbols
+) {
+  let getCharacters = selectedLowercase;
+  if (selectedUppercase) {
+    getCharacters = getCharacters.concat(uppercaseAscii);
+  }
+  // if (selectedLowercase) {
+  //   getCharacters = getCharacters.concat(lowercaseAscii);
+  // }
+  if (selectedNumbers) {
+    getCharacters = getCharacters.concat(numbersAscii);
+  }
+  if (selectedSymbols) {
+    getCharacters = getCharacters.concat(symbolsAscii);
+  }
+
+  const collectedCharacters = [];
+  for (i = 0; i < desiredCharacterCount; i++) {
+    const collectedGetCharacters =
+      getCharacters[Math.floor(Math.random() * getCharacters.length)];
+    collectedCharacters.push(String.fromCharCode(collectedGetCharacters));
+  }
+  //return collectedCharacters;
+  return collectedCharacters.join("");
+}
