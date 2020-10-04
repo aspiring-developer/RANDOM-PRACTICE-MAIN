@@ -9,11 +9,20 @@ const symbolsEl = document.getElementById("Input_Symbols");
 const submitEl = document.getElementById("submitButton");
 
 // Add event listener to the button
+submitEl.addEventListener("click", generatePassword);
 
 // Sync range and counter
+rangeSliderEl.addEventListener("input", syncSliderAndCounter);
+numberCounterEl.addEventListener("input", syncSliderAndCounter);
+function syncSliderAndCounter(e) {
+  let syncValue = e.target.value;
+  rangeSliderEl.value = syncValue;
+  numberCounterEl.value = syncValue;
+}
 
 // Create
 
 // Create ASCII characters for password choices
 
 // Create function to generate password
+function generatePassword() {}
