@@ -1,5 +1,6 @@
 // Retrieve the DOM elements
 const form = document.getElementById("mainForm");
+const passwordFieldEl = document.getElementById("passwordField");
 const rangeSliderEl = document.getElementById("Input_CharacterRange");
 const numberCounterEl = document.getElementById("Input_CharacterNumber");
 const lowercaseEl = document.getElementById("Input_Lowercase");
@@ -7,9 +8,6 @@ const uppercaseEl = document.getElementById("Input_Uppercase");
 const numbersEl = document.getElementById("Input_Numbers");
 const symbolsEl = document.getElementById("Input_Symbols");
 const submitEl = document.getElementById("submitButton");
-
-// Add event listener to the button
-submitEl.addEventListener("click", generatePassword);
 
 // Sync range and counter
 rangeSliderEl.addEventListener("input", syncSliderAndCounter);
@@ -40,7 +38,46 @@ let symbolsAscii = asciiProcess(33, 47)
   .concat(asciiProcess(91, 96))
   .concat(asciiProcess(123, 126));
 
-// Create function to generate password
-function generatePassword(e) {
+// Create submit event handler function
+
+form.addEventListener("submit", function (e) {
   e.preventDefault();
+  const countSelected = numberCounterEl.value;
+  const lowercaseSelected = lowercaseEl.checked;
+  const uppercaseSelected = uppercaseEl.checked;
+  const numbersSelected = numbersEl.checked;
+  const symbolsSelected = symbolsEl.checked;
+  const password = generatePassword(
+    countSelected,
+    uppercaseSelected,
+    numbersSelected,
+    symbolsSelected
+  );
+  passwordFieldEl.innerText = password;
+});
+
+// Create function to generate password
+function generatePassword(
+  countSelected,
+  uppercaseSelected,
+  numbersSelected,
+  symbolsSelected
+) {
+  let userChoice = lowercaseAscii;
+  if (uppercaseSelected) {
+    userChoice = userChoice.concat(uppercaseAscii);
+  }
+  if (numbersSelected) {
+    userChoice = userChoice.concat(numbersAscii);
+  }
+  if (symbolsSelected) {
+    userChoice = userChoice.concat(symbolsAscii);
+  }
+  const passwordCharacters = [];
+  for (i = 0; i < countSelected; i++) {
+    const characterCodes =
+      userChoice[Math.floor(Math.random() * userChoice.length)];
+    passwordCharacters.push(String.fromCharCode(characterCodes));
+  }
+  return passwordCharacters.join("");
 }
