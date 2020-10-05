@@ -25,4 +25,12 @@ function asciiBeginAndEnd(begin, end) {
   //console.log(asciiLoop)
   return asciiLoop;
 }
-asciiBeginAndEnd(65, 90);
+//asciiBeginAndEnd(65, 90);
+
+// Process the ASCII characters
+const upperAscii = asciiBeginAndEnd(65, 90);
+const lowerAscii = asciiBeginAndEnd(97, 122);
+const numbersAscii = asciiBeginAndEnd(48, 57);
+const symbolsAscii = asciiBeginAndEnd(33, 47).concat(asciiBeginAndEnd(58, 64)).concat(asciiBeginAndEnd(91, 96)).concat(asciiBeginAndEnd(123, 126));
+
+// UC: 65-90, LC: 97-122, Num: 48-57, (Sym: 33-47, 58-64, 91-96, 123-126)
