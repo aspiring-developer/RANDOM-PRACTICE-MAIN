@@ -34,3 +34,26 @@ const numbersAscii = asciiBeginAndEnd(48, 57);
 const symbolsAscii = asciiBeginAndEnd(33, 47).concat(asciiBeginAndEnd(58, 64)).concat(asciiBeginAndEnd(91, 96)).concat(asciiBeginAndEnd(123, 126));
 
 // UC: 65-90, LC: 97-122, Num: 48-57, (Sym: 33-47, 58-64, 91-96, 123-126)
+
+// Create submit event listener to the form
+formEl.addEventListener("submit", function(e){
+e.preventDefault();
+let asciiCodes = lowerAscii;
+const characterCounter = characterAmountNumberEl.value;
+const includeUppercase = includeUppercaseEl.checked;
+const includeNumbers = includeNumbersEl.checked;
+const includeSymbols = includeSymbolsEl.checked;
+const password = generatePassword(characterCounter, includeUppercase, includeNumbers, includeSymbols)
+{
+  if(includeUppercase) {
+    asciiCodes = asciiCodes.concat(upperAscii)
+  };
+  if(includeNumbers) {
+    asciiCodes = asciiCodes.concat(numbersAscii)
+  };
+  if(includeSymbols) {
+    asciiCodes = asciiCodes.concat(symbolsAscii)
+  };
+}
+passwordDisplayEL.innerText = password;
+});
