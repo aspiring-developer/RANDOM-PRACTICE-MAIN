@@ -57,3 +57,14 @@ const password = generatePassword(characterCounter, includeUppercase, includeNum
 }
 passwordDisplayEL.innerText = password;
 });
+
+// Create the function to generate password
+function generatePassword(characterCounter, includeUppercase, includeNumbers, includeSymbols) {
+const passwordCharacters = [];
+//console.log(characterCounter, includeUppercase, includeNumbers, includeSymbols);
+for(i = 0; i < asciiCodes.length; i++) {
+asciiCodesRandomize = [Math.floor(Math.random() * asciiCodes.length)];
+passwordCharacters.push(asciiCodesRandomize(i))
+}
+passwordCharacters.join("");
+}
