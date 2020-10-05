@@ -47,22 +47,12 @@ form.addEventListener("submit", function (e) {
   const uppercaseSelected = uppercaseEl.checked;
   const numbersSelected = numbersEl.checked;
   const symbolsSelected = symbolsEl.checked;
-  const password = generatePassword(
-    countSelected,
-    uppercaseSelected,
-    numbersSelected,
-    symbolsSelected
-  );
+  const password = generatePassword(countSelected, uppercaseSelected, numbersSelected, symbolsSelected);
   passwordFieldEl.innerText = password;
 });
 
 // Create function to generate password
-function generatePassword(
-  countSelected,
-  uppercaseSelected,
-  numbersSelected,
-  symbolsSelected
-) {
+function generatePassword(countSelected, uppercaseSelected, numbersSelected, symbolsSelected) {
   let userChoice = lowercaseAscii;
   if (uppercaseSelected) {
     userChoice = userChoice.concat(uppercaseAscii);
