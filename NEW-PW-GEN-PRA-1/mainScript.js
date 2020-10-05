@@ -9,7 +9,7 @@ const symbolsEl = document.getElementById("Input_Symbols");
 const submitEl = document.getElementById("submitButton");
 
 // Add event listener to the button
-//submitEl.addEventListener("click", generatePassword);
+submitEl.addEventListener("click", generatePassword);
 
 // Sync range and counter
 rangeSliderEl.addEventListener("input", syncSliderAndCounter);
@@ -32,6 +32,15 @@ function asciiProcess(min, max) {
 //asciiProcess(65, 90); // Note: calling this here and console logging (i) will show numbers 65 to 90 printed, we need to randomize and convert to ASCII characters using charAt() method
 
 // Create ASCII characters for password choices
+let uppercaseAscii = asciiProcess(65, 90);
+let lowercaseAscii = asciiProcess(97, 122);
+let numbersAscii = asciiProcess(48, 57);
+let symbolsAscii = asciiProcess(33, 47)
+  .concat(asciiProcess(58, 64))
+  .concat(asciiProcess(91, 96))
+  .concat(asciiProcess(123, 126));
 
 // Create function to generate password
-// function generatePassword() {}
+function generatePassword(e) {
+  e.preventDefault();
+}
