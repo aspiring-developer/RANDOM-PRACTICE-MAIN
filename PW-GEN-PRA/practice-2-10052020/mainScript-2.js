@@ -38,13 +38,17 @@ const symbolsAscii = asciiBeginAndEnd(33, 47).concat(asciiBeginAndEnd(58, 64)).c
 // Create submit event listener to the form
 formEl.addEventListener("submit", function(e){
 e.preventDefault();
-let asciiCodes = lowerAscii;
 const characterCounter = characterAmountNumberEl.value;
 const includeUppercase = includeUppercaseEl.checked;
 const includeNumbers = includeNumbersEl.checked;
 const includeSymbols = includeSymbolsEl.checked;
 const password = generatePassword(characterCounter, includeUppercase, includeNumbers, includeSymbols)
-{
+passwordDisplayEL.innerText = password;
+});
+
+// Create the function to generate password
+function generatePassword(characterCounter, includeUppercase, includeNumbers, includeSymbols) {
+  let asciiCodes = lowerAscii;
   if(includeUppercase) {
     asciiCodes = asciiCodes.concat(upperAscii)
   };
@@ -54,17 +58,12 @@ const password = generatePassword(characterCounter, includeUppercase, includeNum
   if(includeSymbols) {
     asciiCodes = asciiCodes.concat(symbolsAscii)
   };
-}
-passwordDisplayEL.innerText = password;
-});
 
-// Create the function to generate password
-function generatePassword(characterCounter, includeUppercase, includeNumbers, includeSymbols) {
 const passwordCharacters = [];
 //console.log(characterCounter, includeUppercase, includeNumbers, includeSymbols);
-for(i = 0; i < asciiCodes.length; i++) {
-asciiCodesRandomize = [Math.floor(Math.random() * asciiCodes.length)];
-passwordCharacters.push(asciiCodesRandomize(i))
+for(i = 0; i < characterCounter; i++) {
+let asciiCodesRandomize = asciiCodes[Math.floor(Math.random() * asciiCodes.length)];
+passwordCharacters.push(String.fromCharCode(asciiCodesRandomize));
 }
-passwordCharacters.join("");
+return passwordCharacters.join("");
 }
