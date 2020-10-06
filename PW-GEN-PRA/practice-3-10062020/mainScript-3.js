@@ -20,7 +20,7 @@ function asciiStartAndEnd (start, end) {
 let asciiLoop = [];
 for(i = start; i <= end; i++) {
 asciiLoop.push(i);
-console.log(i)
+//console.log(i)
 
 }
 return asciiLoop;
@@ -28,8 +28,8 @@ return asciiLoop;
 asciiStartAndEnd (65, 90)
 
 // Process the ASCII characters
-const upperAscii = asciiStartAndEnd(65, 90);
 const lowerAscii = asciiStartAndEnd(97, 122);
+const upperAscii = asciiStartAndEnd(65, 90);
 const numbersAscii = asciiStartAndEnd(48, 57);
 const symbolsAscii = asciiStartAndEnd(33, 47).concat(asciiStartAndEnd(58, 64)).concat(asciiStartAndEnd(91, 96)).concat(asciiStartAndEnd(123, 126));
 
@@ -37,15 +37,27 @@ const symbolsAscii = asciiStartAndEnd(33, 47).concat(asciiStartAndEnd(58, 64)).c
 formEl.addEventListener("submit", function (e) {
   e.preventDefault();
   const counterNumberDesired = counterEl.value;
-  const uppercaseSelect = uppercaseEl.value;
-  const lowercaseSelect = lowercaseEl.value;
-  const numbersSelect = numbersEl.value;
-  const symbolsSelect = symbolsEl.value;
-  const password = generatePassword(uppercaseSelect, lowercaseSelect, numbersSelect, symbolsSelect);
+  const uppercaseSelect = uppercaseEl.checked;
+  const numbersSelect = numbersEl.checked;
+  const symbolsSelect = symbolsEl.checked;
+  const password = generatePassword(counterNumberDesired, uppercaseSelect, numbersSelect, symbolsSelect);
   passwordFieldEl.innerText = password;
+  //console.log(counterNumberDesired, uppercaseSelect, numbersSelect, symbolsSelect, rangeEl.value)
+
 });
 
 // Create the generatePassword function
-function generatePassword(uppercaseSelect, lowercaseSelect, numbersSelect, symbolsSelect) {
-
+function generatePassword(counterNumberDesired, uppercaseSelect, numbersSelect, symbolsSelect) {
+let passwordAscii = lowerAscii;
+if(uppercaseSelect) {passwordAscii= passwordAscii.concat(upperAscii)};
+if(numbersSelect) {passwordAscii= passwordAscii.concat(numbersAscii)};
+if(symbolsSelect) {passwordAscii= passwordAscii.concat(symbolsAscii)};
+//console.log(passwordAscii);
+let passwordCharacters = [];
+for(i = 0; i <= counterNumberDesired.length; i++) {
+  console.log(counterNumberDesired);
+}
+let randomizeCharacters = passwordAscii[Math.floor(Math.random() * passwordAscii.length)];
+passwordCharacters.push(String.fromCharCode(randomizeCharacters));
+return passwordCharacters.join('');
 }
