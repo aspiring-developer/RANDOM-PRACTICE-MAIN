@@ -22,18 +22,14 @@ function asciiBeginAndEnd(begin, end) {
   for(i=begin; i<=end; i++){
   asciiLoop.push(i);
   }
-  //console.log(asciiLoop)
   return asciiLoop;
 }
-//asciiBeginAndEnd(65, 90);
 
 // Process the ASCII characters
 const upperAscii = asciiBeginAndEnd(65, 90);
 const lowerAscii = asciiBeginAndEnd(97, 122);
 const numbersAscii = asciiBeginAndEnd(48, 57);
 const symbolsAscii = asciiBeginAndEnd(33, 47).concat(asciiBeginAndEnd(58, 64)).concat(asciiBeginAndEnd(91, 96)).concat(asciiBeginAndEnd(123, 126));
-
-// UC: 65-90, LC: 97-122, Num: 48-57, (Sym: 33-47, 58-64, 91-96, 123-126)
 
 // Create submit event listener to the form
 formEl.addEventListener("submit", function(e){
@@ -49,21 +45,23 @@ passwordDisplayEL.innerText = password;
 // Create the function to generate password
 function generatePassword(characterCounter, includeUppercase, includeNumbers, includeSymbols) {
   let asciiCodes = lowerAscii;
-  if(includeUppercase) {
-    asciiCodes = asciiCodes.concat(upperAscii)
-  };
-  if(includeNumbers) {
-    asciiCodes = asciiCodes.concat(numbersAscii)
-  };
-  if(includeSymbols) {
-    asciiCodes = asciiCodes.concat(symbolsAscii)
-  };
+  if(includeUppercase) {asciiCodes = asciiCodes.concat(upperAscii)};
+  if(includeNumbers) {asciiCodes = asciiCodes.concat(numbersAscii)};
+  if(includeSymbols) {asciiCodes = asciiCodes.concat(symbolsAscii)};
 
 const passwordCharacters = [];
-//console.log(characterCounter, includeUppercase, includeNumbers, includeSymbols);
 for(i = 0; i < characterCounter; i++) {
 let asciiCodesRandomize = asciiCodes[Math.floor(Math.random() * asciiCodes.length)];
 passwordCharacters.push(String.fromCharCode(asciiCodesRandomize));
 }
 return passwordCharacters.join("");
 }
+
+// TODO: Thought Process:
+// Retrieve the DOM elements
+// Sync range and counter field
+// Create a function to loop the ASCII character lists
+// Process the ASCII characters
+// Create submit event listener to the form
+// Create the function to generate password
+// UC: 65-90, LC: 97-122, Num: 48-57, (Sym: 33-47, 58-64, 91-96, 123-126)
