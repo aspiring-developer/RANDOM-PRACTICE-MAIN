@@ -31,5 +31,4 @@ formEl.addEventListener("submit", function (e) {
     let division = parseInt(inputField1El.value) / parseInt(inputField2El.value);
     resultDisplayEl.innerText = division;
   }
-
 });
