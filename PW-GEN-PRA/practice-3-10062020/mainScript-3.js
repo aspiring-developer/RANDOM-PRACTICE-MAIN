@@ -52,12 +52,11 @@ let passwordAscii = lowerAscii;
 if(uppercaseSelect) {passwordAscii= passwordAscii.concat(upperAscii)};
 if(numbersSelect) {passwordAscii= passwordAscii.concat(numbersAscii)};
 if(symbolsSelect) {passwordAscii= passwordAscii.concat(symbolsAscii)};
-//console.log(passwordAscii);
+// console.log(passwordAscii);
 let passwordCharacters = [];
-for(i = 0; i <= counterNumberDesired.length; i++) {
-  console.log(counterNumberDesired);
-}
+for(i = 0; i < counterNumberDesired; i++) {
 let randomizeCharacters = passwordAscii[Math.floor(Math.random() * passwordAscii.length)];
 passwordCharacters.push(String.fromCharCode(randomizeCharacters));
+console.log(passwordCharacters);}
 return passwordCharacters.join('');
 }
