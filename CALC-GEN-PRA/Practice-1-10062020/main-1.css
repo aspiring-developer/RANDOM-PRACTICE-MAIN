@@ -15,7 +15,10 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(245, 246, 248);
-  background-color: red;
+
+}
+header, footer {
+  background-color: #423b7e;
 }
 .calcWrapper {
   width: 400px;
@@ -26,7 +29,9 @@
   align-items: center;
   padding: 2rem;
   box-shadow: 20px 20px 20px #c7c5c5;
-  border: 20px solid rgb(110, 7, 93);
+  border: 20px solid #423b7e;
+  border-radius: 10px;
+
 }
 #charDisplay {
   background-color: rgb(229, 240, 245);
