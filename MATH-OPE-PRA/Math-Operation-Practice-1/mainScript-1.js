@@ -8,24 +8,28 @@ const subtractEl = document.querySelector(".subtract");
 const multiplyEl = document.querySelector(".multiply");
 const divideEl = document.querySelector(".divide");
 
-//function userInputValue(e) {
-// inputField1El.value = e.target.value;
-// inputField2El.value = e.target.value;
-// console.log(inputField1El, inputField2El)
-//}
-
-
-//addEl.addEventListener("click", generateResult);
-
 // Add submit-event event listener to the form
-formEl.addEventListener("submit", function(e){
- e.preventDefault();
- //let inputField1Number = 0;
-inputField1El.value = e.target.value;
-if (inputField1El.value == e.target.value) {
- // console.log("you typed something!");
- resultDisplayEl.innerText = "The result is: ";
-};
-// inputField2El.value = e.target.value;
-//console.log(inputField1El, inputField2El)
-})
+formEl.addEventListener("submit", function (e) {
+  e.preventDefault();
+  addEl.addEventListener("click", doAddition);
+  function doAddition() {
+    let addition = parseInt(inputField1El.value) + parseInt(inputField2El.value);
+    resultDisplayEl.innerText = addition;
+   }
+  subtractEl.addEventListener("click", doSubtraction);
+  function doSubtraction() {
+    let subtraction = parseInt(inputField1El.value) - parseInt(inputField2El.value);
+    resultDisplayEl.innerText = subtraction;
+  }
+  multiplyEl.addEventListener("click", doMultiplication);
+  function doMultiplication() {
+    let multiplication = parseInt(inputField1El.value) * parseInt(inputField2El.value);
+    resultDisplayEl.innerText = multiplication;
+  }
+  divideEl.addEventListener("click", doDivision);
+  function doDivision() {
+    let division = parseInt(inputField1El.value) / parseInt(inputField2El.value);
+    resultDisplayEl.innerText = division;
+  }
+
+});
