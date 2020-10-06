@@ -56,6 +56,22 @@ input {
 .operators {
   font-size: 1.5rem;
   height: 60px;
+  padding: 0 1rem;
+}
+.operatorBtn {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.operatorTexts {
+  font-size: 1rem;
+  line-height: 1;
+  display: block;
+  margin-top: -.5rem;
+  padding: .5rem 0;
+}
+.operatorBtn:focus {
+ outline: none;
 }
 
 .numbers, .operators, .letters {
@@ -67,9 +83,3 @@ input {
   background-color: rgb(235, 235, 235);
 }
 
-.operatorTexts {
-  font-size: 1rem;
-  line-height: 1;
-  display: block;
-  margin-top: -.5rem;
-}
