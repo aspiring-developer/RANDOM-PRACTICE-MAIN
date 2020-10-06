@@ -1,0 +1,48 @@
+.Body {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.MainWrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 246, 248);
+  background-color: red;
+}
+.calcWrapper {
+  width: 400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-shadow: 20px 20px 20px #c7c5c5;
+  border: 20px solid rgb(110, 7, 93);
+}
+#charDisplay {
+  background-color: rgb(229, 240, 245);
+}
+.letters {
+  font-size: 1.2rem;
+  height: 60.48px;
+}
+.numbers, .operators {
+  font-size: 1.5rem;
+  height: 60px;
+}
+
+.numbers, .operators, .letters {
+border: 1px solid rgb(212, 210, 210);
+}
+.numbers:hover, .operators:hover, .letters:hover {
+  background-color: rgb(235, 235, 235);
+  }
