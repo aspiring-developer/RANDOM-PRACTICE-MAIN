@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ########## REQUIRED META TAGS ########## -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Random Password Generator V-3 </title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <link rel="stylesheet" href="common-3.css" />
+  <link rel="stylesheet" href="main-3.css" />
+</head>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<body>
+  <!-- Main wrapper -->
+  <div class="container mainWrapper">
+    <!-- !########## HEADER SECTION  ########## -->
+    <header>
+      <div class="row text-center bg-dark text-white py-4 px-3 mainSection1Row">
+        <div class="col">
+          <h1 class="text-center text-white text-uppercase font-weight-bold mt-5"> Random Password Generator V-3<br> </h1>
+          <p class="text-center text-white my-3"> <em> Create a secure random password </em> </p>
+        </div>
+      </div>
+    </header> <!-- header ends-->
+
+    <!-- !########## MAIN SECTION -1 ########## -->
+    <section>
+      <div class="row my-4 mainSection2Row">
+        <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+        <div class="col p-3 bg-light text-center">
+          <h4 class="text-dark p-3 bg-light w-75 m-auto border" id="passwordDisplay"> Generated Password will Display Here. </h4>
+
+          <div class="col mt-4">
+            <form id="passwordGeneratorForm" class="form">
+              <h5> <label for="characterAmountNumber">Number Of Characters</label> </h5>
+              <div class="character-amount-container">
+                <input type="range" class="w-50" min="8" max="128" value="8" id="characterAmountRange">
+                <input type="number" class="text-center" min="8" max="128" value="8" id="characterAmountNumber">
+              </div>
+              <br />
+              <h6><label for="includeUppercase">Include Uppercase</label>
+                <input type="checkbox" id="includeUppercase"> </h6>
+              <br />
+              <h6><label for="includeNumbers">Include Numbers</label>
+                <input type="checkbox" id="includeNumbers"> </h6>
+              <br />
+              <h6><label for="includeSymbols">Include Symbols</label>
+                <input type="checkbox" id="includeSymbols"> </h6>
+              <br />
+              <button type="submit" class="btn btn-info p-3">Generate Password</button>
+            </form>
+          </div>
+
+
+          <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+        </div> <!-- .mainSection2Row ends -->
+    </section> <!-- Main section -2 ends -->
+
+    <!-- !########## FOOTER SECTION ########## -->
+    <footer>
+
+    </footer> <!-- footer ends-->
+    <footer>
+      <div class="row text-center bg-dark text-white py-4 px-3 mainSection1Row">
+        <div class="col">
+          <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+          <div class="text-center bg-dark text-white py-2 px-2">
+            <p> &copy;2020 &bull; Shiva Sharma &bull; Random Password Generator App </p>
+          </div> <!-- footer lower texts block ends -->
+          <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+        </div>
+      </div>
+    </footer> <!-- header ends-->
+  </div> <!-- .mainWrapper ends -->
+
+  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+  <!-- Required Bootstrap JavaScript -->
+  <!-- Check the latest version of CDNs @ https://getbootstrap.com/ As of 06/15/2020, jQuery: 3.5.1, popper.js: 1.16.0, bootstrap.js: 4.5.0   -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="mainScript-3.js"> </script>
+
+</body>
+
+</html>
