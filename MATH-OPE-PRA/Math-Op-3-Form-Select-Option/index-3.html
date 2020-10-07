@@ -38,13 +38,14 @@
         <p>Select an operator type: </p>
         <div class="col-12">
         <select id="operatorOption" class="p-2 mb-4">
-          <option class="col-12 add">ADD (+) </option>
-          <option class="col-12 add">SUBTRACT (-) </option>
-          <option class="col-12 add">MULTIPLY (x) </option>
-          <option class="col-12 add">DIVIDE (÷) </option>
+          <option value="Blank">Choose an operator </option>
+          <option value="Add">ADD (+) </option>
+          <option value="Subtract">SUBTRACT (-) </option>
+          <option value="Multiply">MULTIPLY (x) </option>
+          <option value="Divide">DIVIDE (÷) </option>
         </select>
       </div>
-        <button class="btn btn-info d-block"> Calculate </button>
+        <button class="btn btn-info d-block" id="calculateBtn"> Calculate </button>
       </div> <!-- .calcWrapper ends -->
     </form>
     <!-- !########## FOOTER SECTION ########## -->
