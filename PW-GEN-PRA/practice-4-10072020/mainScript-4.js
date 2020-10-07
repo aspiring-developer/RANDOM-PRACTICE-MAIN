@@ -20,15 +20,16 @@ function asciiStartAndEnd(start, end) {
   for(i= start; i <= end; i++) {
     asciiRetrieve.push(i);
   }
-  //console.log(asciiRetrieve);
+  return asciiRetrieve;
 }
-//asciiStartAndEnd(1, 8)
+
 
 // Retrieve ASCII characters to process
-const lowerAscii = asciiStartAndEnd(97, 122);
-const upperAscii = asciiStartAndEnd(65, 90);
-const upperAscii = asciiStartAndEnd(48, 57);
-const upperAscii = asciiStartAndEnd(33, 47).concat(asciiStartAndEnd(58, 64)).concat(asciiStartAndEnd(91, 96)).concat(asciiStartAndEnd(123, 126));
+let lowerAscii = asciiStartAndEnd(97, 122);
+let upperAscii = asciiStartAndEnd(65, 90);
+let numbersAscii = asciiStartAndEnd(48, 57);
+let symbolsAscii = asciiStartAndEnd(33, 47).concat(asciiStartAndEnd(58, 64)).concat(asciiStartAndEnd(91, 96)).concat(asciiStartAndEnd(123, 126));
+console.log(symbolsAscii);
 
 // Create submit-event to the form
 
