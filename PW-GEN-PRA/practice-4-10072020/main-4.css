@@ -1,0 +1,69 @@
+.Body {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.MainWrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(184, 176, 183);
+}
+
+.boxWrapper {
+  padding: 3rem 4rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 2px 2px 5px rgba(16, 17, 17, 0.5);
+}
+
+.FormRow {
+  width: 400px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.headerWrapper {
+  border-radius: 10px 10px 0 0;
+  background-color: rgba(255, 255, 255, 1);
+  margin: 1rem;
+}
+
+.Form {
+  text-align: center;
+  background-color: rgb(238, 248, 248);
+  padding: 2rem;
+}
+
+.form-control {
+  font-size: .9rem;
+  padding: .5rem;
+  margin: 1rem auto;
+  width: 80%;
+  text-align: center;
+  border: 1px solid #d6d5d5;
+}
+
+.form-control::placeholder {
+  color: #a0a0a0;
+}
+
+.Form label, .Form p {
+  color: #385877;
+  font-size: .9rem;
+  margin-top: 1rem;
+}
+
+.NewUser a, .ForgotPassword a {
+  color: #385877;
+}
+
+.NewUser a:hover, .ForgotPassword a:hover {
+  color: #0f5e5e;
+}
