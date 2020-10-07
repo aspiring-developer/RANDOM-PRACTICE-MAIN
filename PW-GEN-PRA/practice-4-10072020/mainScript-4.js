@@ -1,5 +1,5 @@
 // Retrieve the DOM elements
-const form = document.getElementById("passwordGeneratorForm");
+const formEl = document.getElementById("passwordGeneratorForm");
 const rangeEl = document.getElementById("characterAmountRange");
 const counterEl = document.getElementById("characterAmountNumber");
 const upperEl = document.getElementById("includeUppercase");
@@ -25,16 +25,35 @@ function asciiStartAndEnd(start, end) {
 
 
 // Retrieve ASCII characters to process
-let lowerAscii = asciiStartAndEnd(97, 122);
-let upperAscii = asciiStartAndEnd(65, 90);
-let numbersAscii = asciiStartAndEnd(48, 57);
-let symbolsAscii = asciiStartAndEnd(33, 47).concat(asciiStartAndEnd(58, 64)).concat(asciiStartAndEnd(91, 96)).concat(asciiStartAndEnd(123, 126));
+const lowerAscii = asciiStartAndEnd(97, 122);
+const upperAscii = asciiStartAndEnd(65, 90);
+const numbersAscii = asciiStartAndEnd(48, 57);
+const symbolsAscii = asciiStartAndEnd(33, 47).concat(asciiStartAndEnd(58, 64)).concat(asciiStartAndEnd(91, 96)).concat(asciiStartAndEnd(123, 126));
 console.log(symbolsAscii);
 
 // Create submit-event to the form
+formEl.addEventListener("submit", function(e) {
+  e.preventDefault();
+  const rangeCounterAmount = counterEl.value;
+  const uppercaseChecked = upperEl.checked;
+  const numbersChecked = numbersEl.checked;
+  const symbolsChecked = symbolsEl.checked;
+  const password = generatePassword(rangeCounterAmount, uppercaseChecked, numbersChecked, symbolsChecked);
+  console.log(password)
+return password;
+})
 
 // Create generate function
-
+//function generatePassword(rangeCounterAmount, uppercaseChecked, numbersChecked, symbolsChecked) {
+//  let asciiCodes = lowerAscii;
+//  console.log("This is Ascii: " + asciiCodes)
+//  const passwordCharacters = [];
+//  if(upperAscii) {
+//    passwordCharacters.push(i)
+//  }
+//  for (i= 0; i < asciiCodes; i++) {
+//  }
+//}
 
 
 
