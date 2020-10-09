@@ -30,4 +30,11 @@ header, footer {
   background-color: rgb(239, 242, 243);
   color: #b062e4;
 }
+#player1, #player2 {
+  width: auto;
+  height: 210px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ecebeb;
 
+}

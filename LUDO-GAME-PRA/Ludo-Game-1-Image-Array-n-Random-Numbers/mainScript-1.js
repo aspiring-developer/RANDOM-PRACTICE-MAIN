@@ -11,17 +11,14 @@ rollBtnEl.addEventListener("click", rollDice);
 
 // Create rollDice function
 function rollDice() {
-for (i = 1; i<= diceImageArray.length; i++) {
+for (i = 1; i<=diceImageArray.length; i++) {
+let player1Rolled = diceImageArray[Math.floor(Math.random() * diceImageArray.length)];
+console.log(player1Rolled);
+player1El.innerHTML = ` <img src='${player1Rolled}' /> `;
 
-  let player1Tern = Math.ceil(Math.random() * diceImageArray.length );
-
-  console.log(player1Tern);
-  //player1Tern = diceImageArray[0];
-
-
-//player1El.innerHTML = ` <img src='${diceImageArray[i]}' /> `;
- player2El.innerHTML = ` <img src='${diceImageArray[1]}' /> `;
- player1El.innerHTML = ` <img src='${player1Tern}.${diceImageArray[2]} ' /> `;
+let player2Rolled = diceImageArray[Math.floor(Math.random() * diceImageArray.length)];
+console.log(player2Rolled);
+player2El.innerHTML = ` <img src='${player2Rolled}' /> `;
 
 }
 
