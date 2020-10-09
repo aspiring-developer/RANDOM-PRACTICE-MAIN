@@ -1,0 +1,43 @@
+.MainWrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 246, 248);
+}
+
+header, footer {
+  background-color: #450c6b;
+}
+
+.gameAreaWrapper {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-shadow: 20px 20px 20px #c7c5c5;
+  border: 5px solid #adabaf;
+  border-radius: 10px;
+}
+
+#resultDisplay {
+  background-color: rgb(239, 242, 243);
+  color: #b062e4;
+}
+
+#player1, #player2 {
+  width: auto;
+  height: 210px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ecebeb;
+}
+#rollBtn:focus {
+outline: 0;
+}
