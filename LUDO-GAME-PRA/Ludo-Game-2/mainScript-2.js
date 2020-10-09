@@ -12,13 +12,19 @@ rollBtnEl.addEventListener("click", diceResult);
 
 // Create the diceResult function
 function diceResult() {
-  for(i = 1; i <= diceImagesArray.length; i++ ) {
+  for (i = 1; i <= diceImagesArray.length; i++) {
 
-let player1Roll = diceImagesArray[Math.floor(Math.random() * diceImagesArray.length)];
-player1El.innerHTML = ` <img src=${player1Roll} /> `;
-console.log(diceImagesArray[i]);
+    let player1Roll = diceImagesArray[Math.floor(Math.random() * diceImagesArray.length)];
+    player1El.innerHTML = ` <img src=${player1Roll} /> `;
 
-let player2Roll = diceImagesArray[Math.floor(Math.random() * diceImagesArray.length)];
-player2El.innerHTML = ` <img src=${player2Roll} /> `;
+    let player2Roll = diceImagesArray[Math.floor(Math.random() * diceImagesArray.length)];
+    player2El.innerHTML = ` <img src=${player2Roll} /> `;
+  }
+  if (player1El.innerHTML > player2El.innerHTML) {
+    resultDisplayEl.innerHTML = "PLAYER 1 WIN!";
+  } else if (player2El.innerHTML > player1El.innerHTML) {
+    resultDisplayEl.innerHTML = "PLAYER 2 WIN!";
+  } else {
+    resultDisplayEl.innerHTML = "THERE IS A TIE!";
   }
 }
