@@ -31,15 +31,13 @@ const uppercaseAscii = startAndEndAscii(65, 90);
 const numbersAscii = startAndEndAscii(48, 57);
 const symbolsAscii = startAndEndAscii(33, 47).concat(startAndEndAscii(58, 64)).concat(startAndEndAscii(91, 96)).concat(startAndEndAscii(123, 126))
 
-console.log(lowercaseAscii, uppercaseAscii, numbersAscii, symbolsAscii);
-
 // Create form submit event with a callback function
 passwordGeneratorFormEl.addEventListener("submit", function (e) {
   e.preventDefault();
   const characterCountChoice = characterAmountNumberEl.value;
-  const includeUppercase = includeUppercaseEl.value;
-  const includeNumbers = includeNumbersEl.value;
-  const includeSymbols = includeSymbolsEl.value;
+  const includeUppercase = includeUppercaseEl.checked;
+  const includeNumbers = includeNumbersEl.checked;
+  const includeSymbols = includeSymbolsEl.checked;
 
   const password = generatePassword(characterCountChoice, includeUppercase, includeNumbers, includeSymbols);
 
@@ -50,17 +48,22 @@ passwordGeneratorFormEl.addEventListener("submit", function (e) {
 
 // Create the generatePassword function
 function generatePassword(characterCountChoice, includeUppercase, includeNumbers, includeSymbols) {
-  let passwordAscii = [];
-  console.log("generatePassword function is working!");
-  if (includeUppercase) {
-    passwordAscii = passwordAscii.concat(uppercaseAscii)
-  } else if (includeNumbers) {
-      passwordAscii =  passwordAscii.concat(numbersAscii)
-    } else if (includeSymbols) {
-      passwordAscii =  passwordAscii.concat(symbolsAscii)
-    } else {
-      passwordAscii = lowercaseAscii;
-};
+  let passwordAscii = lowercaseAscii;
+//console.log(lowercaseAscii);
+ if (includeUppercase) { passwordAscii = passwordAscii.concat(uppercaseAscii) };
+  if (includeNumbers) { passwordAscii = passwordAscii.concat(numbersAscii) };
+  if (includeSymbols) { passwordAscii = passwordAscii.concat(symbolsAscii) };
+  //console.log(passwordAscii);
+  let passwordCharacters = [];
+for (i = 0; i < characterCountChoice; i++) {
+ //console.log("FOR LOOP WORKING!!!!")
+  let finalPassword = passwordAscii[Math.floor(Math.random() * passwordAscii.length)];
+  passwordCharacters.push(String.fromCharCode(finalPassword));
+  console.log(finalPassword);
+  //console.log(passwordCharacters);
+ //passwordCharacters.join("");
+}
+return passwordCharacters.join("");
 }
 
 // TODO: Reference ASCII Values
