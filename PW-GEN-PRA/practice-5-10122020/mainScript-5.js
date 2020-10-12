@@ -18,22 +18,26 @@ function syncRangeAndCounter(e) {
 
 // Loop process ASCII codes
 function startAndEndAscii(start, end) {
-  for(i = start; i <= end; i++) {
-console.log(i);
-//return i;
-}
-return i;
+  let asciiLoop = [];
+  for (i = start; i <= end; i++) {
+    asciiLoop.push(i);
+  }
+  return asciiLoop;
 }
 
 // Retrieve ASCII codes
 const lowercaseAscii = startAndEndAscii(97, 122);
 const uppercaseAscii = startAndEndAscii(65, 90);
 const numbersAscii = startAndEndAscii(48, 57);
-//let symbolsAscii = startAndEndAscii(33, 47).concat(startAndEndAscii(58, 64));
+const symbolsAscii = startAndEndAscii(33, 47).concat(startAndEndAscii(58, 64)).concat(startAndEndAscii(91, 96)).concat(startAndEndAscii(123, 126))
 
-console.log(lowercaseAscii, uppercaseAscii, numbersAscii, );
+console.log(lowercaseAscii, uppercaseAscii, numbersAscii, symbolsAscii);
+
 // Create form submit event with generate password callback
-
+passwordGeneratorFormEl.addEventListener("submit", function(e) {
+  e.preventDefault();
+  console.log("WORKING")
+})
 // Create the generatePassword function
 
 // TODO: Reference ASCII Values
