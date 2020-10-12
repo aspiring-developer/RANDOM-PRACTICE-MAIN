@@ -33,12 +33,35 @@ const symbolsAscii = startAndEndAscii(33, 47).concat(startAndEndAscii(58, 64)).c
 
 console.log(lowercaseAscii, uppercaseAscii, numbersAscii, symbolsAscii);
 
-// Create form submit event with generate password callback
-passwordGeneratorFormEl.addEventListener("submit", function(e) {
+// Create form submit event with a callback function
+passwordGeneratorFormEl.addEventListener("submit", function (e) {
   e.preventDefault();
-  console.log("WORKING")
+  const characterCountChoice = characterAmountNumberEl.value;
+  const includeUppercase = includeUppercaseEl.value;
+  const includeNumbers = includeNumbersEl.value;
+  const includeSymbols = includeSymbolsEl.value;
+
+  const password = generatePassword(characterCountChoice, includeUppercase, includeNumbers, includeSymbols);
+
+  //passwordDisplayEl.innerHTML = "HELLO!!!!!!!!!!!!!!!!!!!!!!"
+  passwordDisplayEl.innerHTML = password;
+
 })
+
 // Create the generatePassword function
+function generatePassword(characterCountChoice, includeUppercase, includeNumbers, includeSymbols) {
+  let passwordAscii = [];
+  console.log("generatePassword function is working!");
+  if (includeUppercase) {
+    passwordAscii = passwordAscii.concat(uppercaseAscii)
+  } else if (includeNumbers) {
+      passwordAscii =  passwordAscii.concat(numbersAscii)
+    } else if (includeSymbols) {
+      passwordAscii =  passwordAscii.concat(symbolsAscii)
+    } else {
+      passwordAscii = lowercaseAscii;
+};
+}
 
 // TODO: Reference ASCII Values
 // UC: 65, 90  |  LC: 97, 122 |  Num: 48, 57 | (Sym: 33, 47  &&  58, 64  &&  91, 96  &&  123, 126  )
