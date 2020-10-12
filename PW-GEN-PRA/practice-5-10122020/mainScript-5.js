@@ -17,12 +17,24 @@ function syncRangeAndCounter(e) {
 }
 
 // Loop process ASCII codes
+let asciiLoop = [];
 function startAndEndAscii(start, end) {
+for(i = start; i <= end; i++) {
+  //let asciiLoop = [];
+console.log (start, end);
+ return asciiLoop[i];
+}
 
 }
 
+startAndEndAscii(97, 122);
 // Retrieve ASCII codes
+const lowercaseAscii = startAndEndAscii(97, 122);
+const uppercaseAscii = startAndEndAscii(65, 90);
+const numbersAscii = startAndEndAscii(48, 57);
+const symbolsAscii = startAndEndAscii(33, 47).concat(symbolsAscii(startAndEndAscii(58, 64)));
 
+console.log(lowercaseAscii, uppercaseAscii, numbersAscii, symbolsAscii);
 // Create form submit event with generate password callback
 
 // Create the generatePassword function
