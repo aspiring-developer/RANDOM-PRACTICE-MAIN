@@ -23,7 +23,6 @@ function asciiStartAndEnd(start, end) {
   }
   return asciiLoop;
 }
-//asciiStartAndEnd(97, 122);
 
 const lowerAscii = asciiStartAndEnd(97, 122);
 const upperAscii = asciiStartAndEnd(65, 90);
@@ -59,8 +58,6 @@ function generatePassword(characterCount, includeUppercase, includeNumbers, incl
     }
   return passwordCharacters.join("");
   }
-
-
 
 // TODO: Reference ASCII Values
 // UC: 65, 90  |  LC: 97, 122 |  Num: 48, 57 | (Sym: 33, 47  &&  58, 64  &&  91, 96  &&  123, 126  )
