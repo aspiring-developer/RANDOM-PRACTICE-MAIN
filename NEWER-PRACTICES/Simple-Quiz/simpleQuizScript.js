@@ -26,3 +26,5 @@ displayCounterEl.innerHTML = score;
   console.log("Wrong!");
 }
 }
+let displayMessageEl = document.getElementById("displayMessage");
+displayMessageEl.innerHTML = `You scored ${score} out of ${questionsToAsk.length}`;
