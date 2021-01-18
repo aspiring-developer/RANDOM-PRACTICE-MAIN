@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Static MapQuest Map API </title>
+  <!--<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>-->
+<script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest-maps.js"></script>
+<link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest-maps.css"/>
+</head>
+<body>
+  <h1>Static MapQuest Map API </h1>
+  <div id="map"  style="background-color: yellow; width: 500px; height: 500px"> </div>
+
+  <script>
+    L.mapquest.key ='EPEjmGXcWEDYlNBGZAI6Pri4is4dODEj';
+
+    // 'map' refers to a <div> element with the ID map
+    L.mapquest.map('map', {
+      center: [37.7749, -122.4194],
+      layers: L.mapquest.tileLayer('map'),
+      zoom: 12
+    });
+    </script>
+  <!--<script src="script.js"> </script>-->
+</body>
+</html>
