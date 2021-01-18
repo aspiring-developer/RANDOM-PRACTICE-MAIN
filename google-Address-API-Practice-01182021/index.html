@@ -31,18 +31,19 @@
         center: myLatLng,
         zoom: 8,
       });
+      const customIcon = {
+          url: "/shiva-small.png",
+            scale: 1,
+              };
 
       //Map marker
       new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: "This is Apex, NC!",
+        title: "Hello, how are you?",
         draggable: true,
-        icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 10,
-          }
-      });
+        icon: customIcon,
+          });
     }
   </script>
 </head>
