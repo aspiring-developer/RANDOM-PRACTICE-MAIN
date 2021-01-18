@@ -4,12 +4,14 @@
 <head>
   <title>Google Map Geocode App </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNlqKXOpDlK_yYaaFqLpacVf4mtrc7wRI&callback=initMap&libraries=&v=weekly" defer></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
    <style type="text/css">
     /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-    #map {
+    #mainAddressDisplay {
       height: 100%;
       margin: 0 auto;
     }
@@ -25,35 +27,67 @@
 
 </head>
 
-<body style="text-align: center; background-color:  aliceblue;">
+<body style="background-color:  aliceblue;">
+  <div class="container">
+
   <h3> Google Map Geolocation Displays Below: </h3>
+  <div id="mainAddressDisplay" style="background-color: aliceblue; text-align: center; padding: 1rem;"> </div>
+
+  <!--Address components display area -->
+  <div id="addressComponentsDisplay"> </div>
+
+  <!--Address components display area -->
+  <h3> Google Map with Custom Image-Icon Displays Below: </h3>
   <div id="map" style="background-color: aliceblue; width:500px; height: 500px; text-align: center; padding: 1rem;"> This is where map displays.</div>
 
+
+  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+  <!-- Geocode codes -->
   <script>
     //https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBNlqKXOpDlK_yYaaFqLpacVf4mtrc7wRI
     geocode();
   function geocode() {
-    let location = "2369 Redbud Tree Dr Apex Nc 27539"
+    let location = "1725 New Hope Church Rd, Raleigh, NC 27609"
     axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
       params: {
           address: location,
-          //key: "AIzaSyAFG2_-oEztlOHRf0hEWpUmBbh_CDGKgFo"
           key: "AIzaSyBNlqKXOpDlK_yYaaFqLpacVf4mtrc7wRI"
       }
      }).then(function(response) {
-      console.log(response);
+   console.log(response);
+      // formatted address
+      //console.log(response.data.results[0].formatted_address);
+      let formattedAddress = response.data.results[0].formatted_address;
 
+let formattedAddressOutput = `
+<ul class="list-group">
+<li class="list-group-item"> ${formattedAddress} </li>
+  </ul>
+`;
+
+// Address
+let addressComponents = response.data.results[0].address_components;
+console.log(addressComponents);
+let addressComponentsOutput = '<ul class="list-group">';
+for (let i = 0; i < addressComponents.length; i++) {
+  addressComponentsOutput += `
+  <li class="list-group-item"> ${addressComponents[i].types[0]} : ${addressComponents[i].long_name} </li> `;
+}
+addressComponentsOutput +=  '</ul>';
+ document.getElementById("mainAddressDisplay").innerHTML = formattedAddressOutput;
+ document.getElementById("addressComponentsDisplay").innerHTML = addressComponentsOutput;
      }).catch(function(error) {
        console.log(error);
-
      });
   }
 
     </script>
+
+    <script src="mapScript.js"> </script>
 
 </body>
 
