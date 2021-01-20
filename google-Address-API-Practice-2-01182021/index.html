@@ -9,11 +9,18 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
    <style type="text/css">
-    /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+
+.container {
+  margin: 0 auto;
+  background-color: #fff;
+  width: 700px;
+  padding-bottom: 2rem;
+}
     #mainAddressDisplay {
       height: 100%;
       margin: 0 auto;
+      margin: 1rem;
+      color: #aeaeae;
     }
 
     /* Optional: Makes the sample page fill the window. */
@@ -23,29 +30,44 @@
       margin: 0;
       padding: 0;
     }
+    #locationInput {
+      margin: 0 auto;
+      width: 400px;
+      margin-bottom: 1rem;
+    }
+
+    #map {
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+
+    .addressComponentLabel {
+font-weight: bold;
+    }
   </style>
 
 </head>
 
 <body style="background-color:  aliceblue;">
-  <div class="container">
+  <div class="container text-center pt-4">
 
 
-  <h3> Google Map Geolocation Displays Below: </h3>
+  <h3> Google Map Geolocation App </h3>
+  <br />
 
-  <h4> Enter address or location: </h4>
+  <h5> Enter address or location: </h5>
   <form id="locationForm">
 <input type="text" id="locationInput" class="form-control" />
 <button type="submit" class="btn btn-info" > Submit </button>
   </form>
-  <div id="mainAddressDisplay" style="background-color: aliceblue; text-align: center; padding: 1rem;"> </div>
+  <div id="mainAddressDisplay" style="background-color: aliceblue; text-align: center; padding: 1rem;"> Main address will display here. </div>
 
   <!--Address components display area -->
   <div id="addressComponentsDisplay"> </div>
 
   <!--Address components display area -->
-  <h3> Google Map with Custom Image-Icon Displays Below: </h3>
-  <div id="map" style="background-color: aliceblue; width:500px; height: 500px; text-align: center; padding: 1rem;"> This is where map displays.</div>
+  <h5 class="mt-4"> Google Map with Custom Image-Icon: </h5>
+  <div id="map" style="width:500px; height: 500px; text-align: center; padding: 1rem;"> This is where map displays.</div>
 
 
   </div>

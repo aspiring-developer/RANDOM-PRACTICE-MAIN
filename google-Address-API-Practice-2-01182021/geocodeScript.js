@@ -23,10 +23,11 @@ console.log(addressComponents);
 let addressComponentsOutput = '<ul class="list-group">';
 for (let i = 0; i < addressComponents.length; i++) {
 addressComponentsOutput += `
-<li class="list-group-item"> ${addressComponents[i].types[0]} : ${addressComponents[i].long_name} </li> `;
+<li class="list-group-item"> <span class="addressComponentLabel"> ${addressComponents[i].types[0]} : </span> ${addressComponents[i].long_name} </li> `;
 }
 addressComponentsOutput +=  '</ul>';
 document.getElementById("mainAddressDisplay").innerHTML = formattedAddressOutput;
+document.getElementById("mainAddressDisplay").style = "color: brown; font-size: 1.5rem; font-weight: bold";
 document.getElementById("addressComponentsDisplay").innerHTML = addressComponentsOutput;
  }).catch(function(error) {
    console.log(error);

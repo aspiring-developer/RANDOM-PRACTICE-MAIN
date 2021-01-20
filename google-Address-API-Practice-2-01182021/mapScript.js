@@ -1,7 +1,7 @@
     let map;
 
     function initMap() {
-      // This Lat/Lng is for Apex, NC
+      // This Lat/Lng is for a place in Raleigh, NC
       let myLatLng = { lat: 35.835292, lng: -78.606045 };
 
       map = new google.maps.Map(document.getElementById("map"), {
@@ -9,7 +9,7 @@
         zoom: 8,
       });
       const customIcon = {
-        url: "/shiva-small.png",
+        url: "/icon-custom-small.png",
         scale: 1,
       };
 
