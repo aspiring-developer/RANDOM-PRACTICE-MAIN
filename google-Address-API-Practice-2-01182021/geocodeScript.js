@@ -14,8 +14,7 @@ let formattedAddress = response.data.results[0].formatted_address;
 let formattedAddressOutput = `
 <ul class="list-group">
 <li class="list-group-item"> ${formattedAddress} </li>
-</ul>
-`;
+</ul>  `;
 
 // Address
 let addressComponents = response.data.results[0].address_components;
