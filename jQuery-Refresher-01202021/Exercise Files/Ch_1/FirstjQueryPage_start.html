@@ -6,10 +6,16 @@
     <link rel="stylesheet" href="../style.css" />
 
     <!-- insert the script to reference jQuery here -->
+    <script src="../jquery-3.0.0.js"></script>
 
     <!-- insert the script to display the Hello World message here -->
-</head>
+   <script>
+   $("document").ready(function(){
+     $("#content").append("<p>This is test page from jQuery. </p>");
+   });
+</script>
 
+</head>
 <body>
     <h1>First jQuery Page</h1>
     <div id="content">
