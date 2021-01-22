@@ -16,19 +16,20 @@
 //  }
 //}
 
-// TRYING THROUGH CONSTRUCTOR
+// DIFFERENT WAY WORKING
 public class Practice1 {
   int i = 12;
   int j = 24;
 
-  public Practice1() {
-    int k = i + j;
-    System.out.println(k);
+  public void method1() {
+  System.out.println(i + j);
   }
 
   public static void main(String[] args) {
     Practice1 pObject = new Practice1();
+    pObject.method1();
     System.out.println(pObject.i);
     System.out.println(pObject.j);
+
   }
 }
