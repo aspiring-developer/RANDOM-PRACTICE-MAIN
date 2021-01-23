@@ -20,16 +20,19 @@
 public class Practice1 {
   int i = 12;
   int j = 24;
+  static String name = "myName";
 
   public void method1() {
-  System.out.println(i + j);
+  System.out.println(i + j + " " + name + " is ...!");
   }
 
   public static void main(String[] args) {
-    Practice1 pObject = new Practice1();
-    pObject.method1();
-    System.out.println(pObject.i);
-    System.out.println(pObject.j);
+    Practice1 pObject1 = new Practice1();
+    pObject1.method1();
+
+    Practice1 pObject2 = new Practice1();
+    pObject2.name = "hisName";
+    pObject2.method1();
 
   }
 }
