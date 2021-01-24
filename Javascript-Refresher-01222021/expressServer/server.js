@@ -3,9 +3,12 @@ let app = express();
 let PORT = process.env.PORT || 3000;
 let mongodb = require("mongodb");
 
+require('dotenv').config();
+
 let db;
 
 let connectionString = " mongodb+srv://new-user-01242021:NewDatabasePW@cluster0.wuaz2.mongodb.net/newDatabase-01242021?retryWrites=true&w=majority ";
+
 mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true }, function(err, client) {
 db = client.db();
 
@@ -17,43 +20,52 @@ app.listen(PORT, function () {
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-  res.send(`<!DOCTYPE html>
-  <html lang="en">
-
+  db.collection("newCollection-01242021").find().toArray(function(err, allItems) {
+    res.send(`<!DOCTYPE html>
+    <!DOCTYPE html>
+  <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Input Grabbing - Refresher</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Simple To-Do App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   </head>
-
   <body>
     <div class="container">
-      <div>
-        <h1 id="textDisplay"> User Input </h1>
-        <br />
-        <h4> What word most people say when picking up a phone call? </h4>
-        <form action="/testPage" id="inputForm" method="POST">
-          <input name="inputField" id="inputField" class="text-muted" placeholder="Type your response here." /> <button class="btn btn-info p-1" id="displayButton"> Submit </button>
-          <p class="m-0 mt-4"> Your input will be displayed in a different URL. </p>
-          <ol id="itemLists">
-          </ol>
+      <h1 class="display-4 text-center py-1">To-Do App</h1>
+
+      <div class="jumbotron p-3 shadow-sm">
+        <form action="/testPage" method="POST">
+          <div class="d-flex align-items-center">
+            <input name="inputField" autofocus autocomplete="off" class="form-control mr-3" type="text" style="flex: 1;">
+            <button class="btn btn-primary">Add New Item</button>
+          </div>
         </form>
       </div>
+
+      <ul class="list-group pb-5">
+  ${allItems.map(function(singleItem) {
+    return ` <li class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">
+    <span class="item-text">${singleItem.inputFieldText}</span>
+    <div>
+      <button class="edit-me btn btn-secondary btn-sm mr-1">Edit</button>
+      <button class="delete-me btn btn-danger btn-sm">Delete</button>
+    </div>
+  </li> `
+  }).join("")}
+        </ul>
+
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
   </body>
-
   </html>`);
+  })
+
 });
 
 app.post('/testPage', function (req, res) {
   db.collection("newCollection-01242021").insertOne({inputFieldText: req.body.inputField}, function() {
-   res.send("That is correct answer.");
+   res.redirect('/');
   })
 });
 
