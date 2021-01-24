@@ -1,9 +1,21 @@
 let express = require("express");
-
 let app = express();
 let PORT = process.env.PORT || 3000;
+let mongodb = require("mongodb");
+
+let db;
+
+let connectionString = " mongodb+srv://new-user-01242021:NewDatabasePW@cluster0.wuaz2.mongodb.net/newDatabase-01242021?retryWrites=true&w=majority ";
+mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true }, function(err, client) {
+db = client.db();
+
+app.listen(PORT, function () {
+  console.log(` The app is running on http://localhost:${PORT} `);
+})
+})
 
 app.use(express.urlencoded({ extended: false }));
+
 app.get('/', function (req, res) {
   res.send(`<!DOCTYPE html>
   <html lang="en">
@@ -40,16 +52,8 @@ app.get('/', function (req, res) {
 });
 
 app.post('/testPage', function (req, res) {
-  console.log("The user entered: ", req.body.inputField);
-  if (req.body.inputField) {
-    if (req.body.inputField.toLowerCase() == "hello") {
-      res.send("You entered correct answer.");
-    } else {
-      res.send("That is wrong answer.");
-    };
-  }
+  db.collection("newCollection-01242021").insertOne({inputFieldText: req.body.inputField}, function() {
+   res.send("That is correct answer.");
+  })
 });
 
-app.listen(PORT, function () {
-  console.log(` The app is running on http://localhost:${PORT} `);
-})
