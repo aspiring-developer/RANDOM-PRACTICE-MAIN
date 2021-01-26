@@ -9,7 +9,7 @@
 
 <body style="font-family: Arial, Helvetica, sans-serif;">
 
-    <!-- #################### MULTIPLICATION ####################  -->
+  <!-- #################### MULTIPLICATION ####################  -->
   <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
   <h1 style="margin-top: 0"> Recursion with multiplication: </h1>
   <p style="margin-bottom: 0"> When multiplying all numbers, the total will be (see Result Field below):</p>
@@ -19,8 +19,7 @@
     let result = 1;
     let count;
     function recursionMultiply(number) {
-   for (count = number; count > 0; count--)
-      {
+      for (count = number; count > 0; count--) {
         result *= count;
       }
       return result;
@@ -32,25 +31,28 @@
 
   <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
 
-    <!-- #################### ANOTHER WAY MULTIPLICATION ####################  -->
-    <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
-    <h1 style="margin-top: 0"> Another way of Recursion with multiplication: </h1>
-    <p style="margin-bottom: 0"> When multiplying all numbers, the total will be (see Result Field below):</p>
-    <h2 style="margin-bottom: 0; color: blue">Result: &nbsp; <span id="multiplyResultField" style="color:red"> dynamic result </span> </h2>
+  <!-- #################### ANOTHER WAY MULTIPLICATION ####################  -->
+  <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
+  <h1 style="margin-top: 0"> Another way of Recursion with multiplication: </h1>
+  <p style="margin-bottom: 0"> When multiplying all numbers, the total will be (see Result Field below):</p>
+  <h2 style="margin-bottom: 0; color: blue">Result: &nbsp; <span id="multiplyResultField1" style="color:red"> dynamic result </span> </h2>
 
-    <script>
-    var factorial = function(number) {
-  if (number <= 0) { // terminal case
-    return 1;
-  } else { // block to execute
-    return (number * factorial(number - 1));
-  }
-};
-console.log(factorial(6));
-// 720
-    </script>
+  <script>
+    let result1 = 1;
+    function multiply1(number1) {
+      if (number1 <= 0) { // terminal case
+        return 1;
+      } else { // block to execute
+        result1 = (number1 * multiply1(number1 - 1));
+        return result1;
+      }
+    };
+    let multiplyResultField1El = document.getElementById("multiplyResultField1");
+    console.log(multiply1(5));
+    multiplyResultField1El.innerHTML = result1;
+  </script>
 
-    <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
+  <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
 
   <!-- #################### ADDITION ####################  -->
   <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
@@ -70,6 +72,29 @@ console.log(factorial(6));
     let addResultFieldEl = document.getElementById("addResultField");
     console.log(recursionAdd(5));
     addResultFieldEl.innerHTML = result2;
+  </script>
+
+  <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
+
+  <!-- #################### ANOTHER WAY ADDITION ####################  -->
+  <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
+  <h1 style="margin-top: 0"> Another way of Recursion with addition: </h1>
+  <p style="margin-bottom: 0"> When adding all numbers, the total will be (see Result Field below):</p>
+  <h2 style="margin-bottom: 0; color: blue">Result: &nbsp; <span id="addResultField1" style="color:red"> dynamic result </span> </h2>
+
+  <script>
+    let result3 = 1;
+    function add1(number3) {
+      if (number3 <= 0) { // terminal case
+        return 0;
+      } else { // block to execute
+        result3 = (number3 + add1(number3 - 1));
+        return result3;
+      }
+    };
+    let addResultField1El = document.getElementById("addResultField1");
+    console.log(add1(5));
+    addResultField1El.innerHTML = result3;
   </script>
 
   <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
