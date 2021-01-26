@@ -1,26 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Recursion Function with Javascript </title>
 </head>
 
-<body>
+<body style="font-family: Arial, Helvetica, sans-serif;">
 
-<script>
+    <!-- #################### MULTIPLICATION ####################  -->
+  <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
+  <h1 style="margin-top: 0"> Recursion with multiplication: </h1>
+  <p style="margin-bottom: 0"> When multiplying all numbers, the total will be (see Result Field below):</p>
+  <h2 style="margin-bottom: 0; color: blue">Result: &nbsp; <span id="multiplyResultField" style="color:red"> dynamic result </span> </h2>
 
-let k = 10;
+  <script>
+    let result = 1;
+    let count;
+    function recursionMultiply(number) {
+   for (count = number; count > 0; count--)
+      {
+        result *= count;
+      }
+      return result;
+    };
+    let multiplyResultFieldEl = document.getElementById("multiplyResultField");
+    console.log(recursionMultiply(5));
+    multiplyResultFieldEl.innerHTML = result;
+  </script>
 
-  function recursionFunction() {
- if(k > 0) {
-  let result = k + (k-1)
-  } else {
-    result = 0;
+  <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
+
+    <!-- #################### ANOTHER WAY MULTIPLICATION ####################  -->
+    <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
+    <h1 style="margin-top: 0"> Another way of Recursion with multiplication: </h1>
+    <p style="margin-bottom: 0"> When multiplying all numbers, the total will be (see Result Field below):</p>
+    <h2 style="margin-bottom: 0; color: blue">Result: &nbsp; <span id="multiplyResultField" style="color:red"> dynamic result </span> </h2>
+
+    <script>
+    var factorial = function(number) {
+  if (number <= 0) { // terminal case
+    return 1;
+  } else { // block to execute
+    return (number * factorial(number - 1));
   }
-// recursionFunction()
-}
-recursionFunction()
-</script>
+};
+console.log(factorial(6));
+// 720
+    </script>
+
+    <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
+
+  <!-- #################### ADDITION ####################  -->
+  <p style="font-size: .8rem; letter-spacing: 2px; margin-bottom: 0"> vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv </p>
+  <h1 style="margin-top: 0"> Recursion with addition: </h1>
+  <p style="margin-bottom: 0"> When adding all numbers, the total will be (see Result Field below):</p>
+  <h2 style="margin-bottom: 0; color: blue">Result: &nbsp; <span id="addResultField" style="color:red"> dynamic result </span> </h2>
+
+  <script>
+    let result2 = 1;
+    let count2;
+    function recursionAdd(number2) {
+      for (count2 = number2; count2 > 1; count2--) {
+        result2 += count2;
+      }
+      return result2;
+    };
+    let addResultFieldEl = document.getElementById("addResultField");
+    console.log(recursionAdd(5));
+    addResultFieldEl.innerHTML = result2;
+  </script>
+
+  <p style="font-size: 1.2rem; margin-top: 0"> ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ </p>
 </body>
+
 </html>
