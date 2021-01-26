@@ -8,8 +8,7 @@ require('dotenv').config();
 let db;
 app.use(express.static("public"));
 
-let connectionString = " mongodb+srv://new-user-01242021:NewDatabasePW@cluster0.wuaz2.mongodb.net/newDatabase-01242021?retryWrites=true&w=majority ";
-
+let connectionString = process.env.MONGO_FOR_EXPRESS;
 mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
 db = client.db();
 
@@ -22,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-  db.collection("newCollection-01242021").find().toArray(function(err, grabbingAllItemsFromDatabase) {
+  db.collection("collection01262021").find().toArray(function(err, grabbingAllItemsFromDatabase) {
     res.send(`<!DOCTYPE html>
     <!DOCTYPE html>
   <html>
@@ -66,20 +65,20 @@ app.get('/', function (req, res) {
 });
 
 app.post('/create-item', function (req, res) {
-  db.collection("newCollection-01242021").insertOne({userInputText: req.body.userInput}, function() {
+  db.collection("collection01262021").insertOne({userInputText: req.body.userInput}, function() {
    res.redirect('/');
   })
 });
 
 app.post("/update-item", function(req, res) {
-   db.collection("newCollection-01242021").findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {userInputText: req.body.userInputText}}, function() {
+   db.collection("collection01262021").findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {userInputText: req.body.userInputText}}, function() {
   res.send("Updated!");
 });
 
 });
 
 app.post("/delete-item", function(req, res) {
-  db.collection("newCollection-01242021").deleteOne({_id: new mongodb.ObjectId(req.body.id)}, function() {
+  db.collection("collection01262021").deleteOne({_id: new mongodb.ObjectId(req.body.id)}, function() {
  res.send("Deleted!");
 });
 

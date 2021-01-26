@@ -7,9 +7,8 @@ require('dotenv').config();
 
 let db;
 
-let connectionString = " mongodb+srv://new-user-01242021:NewDatabasePW@cluster0.wuaz2.mongodb.net/newDatabase-01242021?retryWrites=true&w=majority ";
-
-mongodb.connect(connectionString, {useNewUrlParser: true}, function(err, client) {
+let connectionString = process.env.MONGO_FOR_EXPRESS;
+mongodb.connect(connectionString, {useNewUrlParser: true, useUnifiedTopology: true}, function(err, client) {
 db = client.db();
 
 app.listen(PORT, function () {
@@ -20,7 +19,7 @@ app.listen(PORT, function () {
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-  db.collection("newCollection-01242021").find().toArray(function(err, grabbingAllItemsFromDatabase) {
+  db.collection("collection01262021").find().toArray(function(err, grabbingAllItemsFromDatabase) {
     res.send(`<!DOCTYPE html>
     <!DOCTYPE html>
   <html>
@@ -62,7 +61,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/create-item', function (req, res) {
-  db.collection("newCollection-01242021").insertOne({userInputText: req.body.userInput}, function() {
+  db.collection("collection01262021").insertOne({userInputText: req.body.userInput}, function() {
    res.redirect('/');
   })
 });
