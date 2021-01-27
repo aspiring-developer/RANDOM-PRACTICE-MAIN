@@ -11,9 +11,24 @@
   <h1> Reverse String </h1>
   <p> See result in console window </p>
 
-<script>
+  <script>
+let originalTexts = "I CAN DO IT!";
 
-</script>
+function reversedFunction() {
+  let arrayOfOriginalTexts = [];
+  for(let i = 0; i < originalTexts.length; i++) {
+    arrayOfOriginalTexts.push(originalTexts[i]);
+  }
+  console.log(arrayOfOriginalTexts);
+
+  let reversedTexts = '';
+  while(arrayOfOriginalTexts.length > 0) {
+    reversedTexts += arrayOfOriginalTexts.pop();
+  }
+  console.log(reversedTexts);
+}
+reversedFunction();
+  </script>
 
 </body>
 
