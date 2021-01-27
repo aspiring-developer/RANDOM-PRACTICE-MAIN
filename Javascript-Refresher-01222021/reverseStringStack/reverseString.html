@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Reverse String using JS Stack </title>
+</head>
+
+<body>
+  <h1> Reverse String using JS Stack </h1>
+  <p>See result in Console window.</p>
+
+  <script>
+    function reverseFunction(str) {
+      let regularTextsInArray = [];
+      for (i = 0; i < str.length; i++) {
+        regularTextsInArray.push(str[i]);
+      }
+      console.log(regularTextsInArray);
+
+      let reversedTexts = '';
+      while (regularTextsInArray.length > 0) {
+        reversedTexts += regularTextsInArray.pop();
+      }
+      console.log(reversedTexts);
+      //return reversedTexts;
+    }
+    reverseFunction("Test strings");
+  </script>
+
+</body>
+
+</html>
