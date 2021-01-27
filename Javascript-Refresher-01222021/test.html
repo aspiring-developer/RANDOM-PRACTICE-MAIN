@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TESTING</title>
 </head>
+
 <body>
-  <script>
-//let result = 1;
-//function recursionMultiply(number) {
-//  for (let count = number; count > 0; count--) {
-//    result *= count;
-//  }
-//  return result;
-//};
-//console.log(recursionMultiply(5));
-</script>
+  <h1> Reverse String </h1>
+  <p> See result in console window </p>
 
 <script>
-let result = 1;
-function recursionMultiply(number) {
-   for (let i = number; i > 0 ; i--) {
-   result *= i;
+// get/create the strings
+// initialize an empty array
+// extract the string characters into individual array item
+
+// initialize an empty variable to hold reversed texts from the array
+// reverse texts and add to the variable
+// return the result
+let originalString = "Terima chikne";
+function reversingFunction() {
+  let textArray = [];
+  for(i = 0; i < originalString.length; i++) {
+    textArray.push(originalString[i]);
   }
- return result;
-};
-console.log(recursionMultiply(5));
-</script>
+  console.log(textArray);
+
+  let reversedTexts = '';
+  while(textArray.length > 0) {
+  reversedTexts += textArray.pop();
+    }
+  console.log(reversedTexts);
+  //return reversedTexts;
+}
+reversingFunction()
+console.log(originalString);
+  </script>
 
 </body>
+
 </html>
