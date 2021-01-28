@@ -74,12 +74,10 @@ app.post("/update-item", function(req, res) {
    db.collection("collection01262021").findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {userInputText: req.body.userInputText}}, function() {
   res.send("Updated!");
 });
-
 });
 
 app.post("/delete-item", function(req, res) {
   db.collection("collection01262021").deleteOne({_id: new mongodb.ObjectId(req.body.id)}, function() {
  res.send("Deleted!");
 });
-
 });

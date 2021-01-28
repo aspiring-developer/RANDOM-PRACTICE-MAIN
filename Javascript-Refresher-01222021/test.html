@@ -44,21 +44,20 @@ reversedFunction();
   </script> -->
 
   <script>
-let originalStrings = "I DID IT PERFECTLY!";
-function reversingStrings() {
-  let stringToCharacterArray = [];
-  for(i = 0; i < originalStrings.length; i++) {
-     stringToCharacterArray.push(originalStrings[i])
-  }
-  console.log(stringToCharacterArray);
+    let originalStrings = "I DID IT PERFECTLY!";
+    function reversingStrings() {
+      let stringToCharacterArray = [];
+      for (i = 0; i < originalStrings.length; i++) {
+        stringToCharacterArray.push(originalStrings[i]);
+      }
+      console.log(stringToCharacterArray);
 
-  let reversedCharacter = '';
-  while(stringToCharacterArray.length > 0) {
-  reversedCharacter += stringToCharacterArray.pop();
-   }
-   console.log(reversedCharacter);
-}
-
+      let reversedCharacter = '';
+      while (stringToCharacterArray.length > 0) {
+        reversedCharacter += stringToCharacterArray.pop();
+      }
+      console.log(reversedCharacter);
+    }
     reversingStrings()
   </script>
 </body>
