@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TESTING</title>
+</head>
+
+<body>
+  <h1> Reverse String </h1>
+  <p> See result in console window </p>
+  <script>
+    // Recursion
+    let givenNumber = 5;
+    let result = 1;
+    function recursiveFunction() {
+      console.log("inside function");
+      for (i = givenNumber; i > 0; i--) {
+        result *= i;
+      }
+      console.log(result);
+    }
+    recursiveFunction()
+  </script>
+  <!-- ######################### -->
+
+  <script>
+    // Reverse String
+    let givenString = "This is working fine!";
+    let extractedStringArray = [];
+    function reversedStringFunction() {
+      for (let i = 0; i < givenString.length; i++) {
+        extractedStringArray.push(givenString[i])
+      }
+console.log(extractedStringArray);
+
+let reveredTexts = '';
+while (extractedStringArray.length > 0) {
+  reveredTexts += extractedStringArray.pop();
+ }
+console.log(reveredTexts);
+    }
+    reversedStringFunction()
+  </script>
+
+</body>
+
+</html>
