@@ -20,7 +20,18 @@ app.listen(PORT, function () {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', function (req, res) {
+function securityFunction(req, res, next) {
+res.set("www-Authenticate", 'Basic realm="Simple To Do App"');
+console.log(req.headers.authorization);
+if(req.headers.authorization == "Basic bXlVc2VybmFtZTpteVBhc3N3b3Jk") {
+next();
+} else {
+res.status(401).send("Authentication required!");
+}
+
+}
+
+app.get('/', securityFunction, function (req, res) {
   db.collection("collection01262021").find().toArray(function(err, grabbingAllItemsFromDatabase) {
     res.send(`
     <!DOCTYPE html>
