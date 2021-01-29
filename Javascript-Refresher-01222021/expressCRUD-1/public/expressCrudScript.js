@@ -1,5 +1,4 @@
 document.addEventListener("click", function (e) {
-
   //Edit/Update functionality
   if (e.target.classList.contains("edit-me")) {
     let userPrompt = prompt("Type what do you want to change or edit?",

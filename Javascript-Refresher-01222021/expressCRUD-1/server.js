@@ -1,4 +1,5 @@
 let express = require("express");
+let sanitizeHTML = require("sanitize-html");
 let app = express();
 let PORT = process.env.PORT || 3000;
 let mongodb = require("mongodb");
@@ -31,7 +32,9 @@ res.status(401).send("Authentication required!");
 
 }
 
-app.get('/', securityFunction, function (req, res) {
+app.use(securityFunction);
+
+app.get('/', function (req, res) {
   db.collection("collection01262021").find().toArray(function(err, grabbingAllItemsFromDatabase) {
     res.send(`
     <!DOCTYPE html>
@@ -79,13 +82,15 @@ app.get('/', securityFunction, function (req, res) {
 });
 
 app.post('/create-item', function (req, res) {
-  db.collection("collection01262021").insertOne({userInputText: req.body.userInput}, function() {
+  let sanitizeTexts = sanitizeHTML(req.body.userInput, {allowedTags: [], allowedAttributes: {}});
+  db.collection("collection01262021").insertOne({userInputText: sanitizeTexts}, function() {
    res.redirect('/');
   })
 });
 
 app.post("/update-item", function(req, res) {
-   db.collection("collection01262021").findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {userInputText: req.body.userInputText}}, function() {
+  let sanitizeTexts = sanitizeHTML(req.body.userInput, {allowedTags: [], allowedAttributes: {}});
+   db.collection("collection01262021").findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {userInputText: sanitizeTexts}}, function() {
   res.send("Updated!");
 });
 });
