@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      Data Types, User Input, Conditional Logic - Uncommented
+    </title>
+  </head>
+  <body>
+    <script type="text/javascript">
+// Prompts user
+      var userName = prompt("What's your name?");
+      // Confirms with user
+      var confirmCats = confirm("Do you like cats?");
+
+      var petName = "Meeses";
+      var petType = "Tuxedo Cat";
+      var petAge = 5;
+      var petIsCat = true;
+
+      // if clicked ok, prints "Meeses Tuxedo Cat 5"
+      if (confirmCats) {
+        alert(petName + " " + petType + " " + petAge);
+      }
+      // if clicked cancel, prints "You don't get my cat's information"
+      else {
+        alert("You don't get my cat's information");
+      }
+// petIsCat = true, so alerts "My pet is a cat"
+      if (petIsCat) {
+        alert("My pet is a cat");
+      }
+// petIsCat = false, so alerts "My pet is not a cat"
+      else {
+        alert("My pet is not a cat");
+      }
+// petAge = 5, so alerts "My pet is not 7 years old"
+      if (petAge !== 7) {
+        alert("My pet is not 7 years old");
+      }
+// petAge = 5, so alerts "My pet is 5 years old"
+      if (petAge === 5) {
+        alert("My pet is 5 years old");
+      }
+// petAge = 5, so skips this
+      else if (petAge < 5) {
+        alert("My pet is less than 5 years old");
+      }
+// petAge = 5, so skips this
+      else {
+        alert("My pet is older than 5 years old");
+      }
+// Alerts "Welcome to our page UserName (i.e. "Mike")
+      alert("Welcome to our page " + userName);
+// Prompts "How old is your cat?"
+      var catAge = prompt("How old is your cat?");
+
+      // Won't work as expected
+      // Alerts (concat) user entered catAge + 2 (i.e. if entered 5, then 52)
+      alert(catAge + 2);
+
+      // Works as expected
+      // Alerts converting entered value to integer and adding + 2 (i.e. if entered 5, then 7)
+      alert(parseInt(catAge) + 2);
+
+    </script>
+  </body>
+</html>
