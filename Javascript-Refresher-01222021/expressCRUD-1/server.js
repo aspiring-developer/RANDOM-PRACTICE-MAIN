@@ -1,7 +1,7 @@
 let express = require("express");
 let sanitizeHTML = require("sanitize-html");
 let app = express();
-let PORT = process.env.PORT || 3000;
+let PORT = process.env.PORT || 5000;
 let mongodb = require("mongodb");
 
 require('dotenv').config();
@@ -35,7 +35,7 @@ res.status(401).send("Authentication required!");
 app.use(securityFunction);
 
 app.get('/', function (req, res) {
-  db.collection("collection01262021").find().toArray(function(err, grabbingAllItemsFromDatabase) {
+  db.collection("itemsInSimpleToDoApp").find().toArray(function(err, grabbingAllItemsFromDatabase) {
     res.send(`
     <!DOCTYPE html>
   <html>
@@ -83,20 +83,20 @@ app.get('/', function (req, res) {
 
 app.post('/create-item', function (req, res) {
   let sanitizeTexts = sanitizeHTML(req.body.userInput, {allowedTags: [], allowedAttributes: {}});
-  db.collection("collection01262021").insertOne({userInputText: sanitizeTexts}, function() {
+  db.collection("itemsInSimpleToDoApp").insertOne({userInputText: sanitizeTexts}, function() {
    res.redirect('/');
   })
 });
 
 app.post("/update-item", function(req, res) {
   let sanitizeTexts = sanitizeHTML(req.body.userInput, {allowedTags: [], allowedAttributes: {}});
-   db.collection("collection01262021").findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {userInputText: sanitizeTexts}}, function() {
+   db.collection("itemsInSimpleToDoApp").findOneAndUpdate({_id: new mongodb.ObjectId(req.body.id)}, {$set: {userInputText: sanitizeTexts}}, function() {
   res.send("Updated!");
 });
 });
 
 app.post("/delete-item", function(req, res) {
-  db.collection("collection01262021").deleteOne({_id: new mongodb.ObjectId(req.body.id)}, function() {
+  db.collection("itemsInSimpleToDoApp").deleteOne({_id: new mongodb.ObjectId(req.body.id)}, function() {
  res.send("Deleted!");
 });
 });

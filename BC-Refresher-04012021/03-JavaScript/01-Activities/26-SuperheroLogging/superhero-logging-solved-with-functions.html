@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Superhero Logging - With Functions</title>
+  </head>
+  <body>
+    <h1>Open the console to see the magic!</h1>
+
+    <script type="text/javascript">
+      // VARIABLES
+      // =======================================================================================
+
+      // Various Arrays
+      var brands = ["Acer", "Apple", "Sony", "Samsung"];
+
+      function consoleInside(arr) {
+        // We then loop through the selected array.
+        for (var i = 0; i < arr.length; i++) {
+          // Each time we print the value inside the array.
+          console.log(arr[i]);
+        }
+        console.log("---------");
+      }
+
+      consoleInside(brands);
+
+      function add(a, b) {
+        console.log("TOTAL ", a + b);
+      }
+
+      add(4, 5);
+      add(2, 4);
+      add(9, 100);
+    </script>
+  </body>
+</html>
