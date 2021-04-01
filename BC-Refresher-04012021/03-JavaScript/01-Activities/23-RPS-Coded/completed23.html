@@ -9,35 +9,70 @@
 </head>
 
 <body>
+  <h3>Response the prompt 4-5 times and check the console window for result.</h3>
   <script>
 
     function playMode(item) {
-      let right = 0;
-      let wrong = 0;
-      let totalPoints = right - wrong;
+      let winCount = 0;
+      let loseCount = 0;
+      let tieCount = 0;
 
-      let computerRandom = Math.floor(Math.random() * item.length);
-      let randomized = (item[computerRandom]);
-      console.log(randomized);
+      let randomize = Math.floor(Math.random() * item.length);
+      let randomizedResult = (item[randomize]);
+      console.log(randomizedResult);
 
-      while (totalPoints >= 0) {
+      while (winCount + loseCount + tieCount >= 0) {
         let userPrompt = prompt("Type an answer from these: rock, paper, scissors");
 
-        if (userPrompt == randomized) {
-          right++;
-          console.log(right + " <--Right count");
+        // Win count
+        if (userPrompt == "rock" && randomizedResult == "scissors") {
+          winCount++;
+          console.log(winCount + " <--winCount count");
+        }
+        if (userPrompt == "paper" && randomizedResult == "rock") {
+          winCount++;
+          console.log(winCount + " <--winCount count");
+        }
+        if (userPrompt == "scissors" && randomizedResult == "paper") {
+          winCount++;
+          console.log(winCount + " <--winCount count");
         }
 
-        if (userPrompt != randomized) {
-          wrong++;
-          console.log(wrong + " <--Wrong count");
+        // Lose count
+        if (userPrompt == "scissors" && randomizedResult == "rock") {
+          loseCount++;
+          console.log(loseCount + " <--loseCount count");
+        }
+        if (userPrompt == "rock" && randomizedResult == "paper") {
+          loseCount++;
+          console.log(loseCount + " <--loseCount count");
+        }
+        if (userPrompt == "paper" && randomizedResult == "scissors") {
+          loseCount++;
+          console.log(loseCount + " <--loseCount count");
         }
 
-    if (right + wrong == 4) {
-        console.log("Your turn is over. You received--> " + wrong + " wrong and " + right + " right.")
-        return;
+        // Tie count
+        if (userPrompt == "rock" && randomizedResult == "rock") {
+          tieCount++;
+          console.log(tieCount + " <--tieCount count");
+        }
+        if (userPrompt == "paper" && randomizedResult == "paper") {
+          tieCount++;
+          console.log(tieCount + " <--tieCount count");
+        }
+        if (userPrompt == "scissors" && randomizedResult == "scissors") {
+          tieCount++;
+          console.log(tieCount + " <--tieCount count");
+        }
+
+
+        if (winCount + loseCount + tieCount == 4) {
+          console.log("Your turn is over. You have--> " + loseCount + " Lose Count, " + winCount + " Win Count and " + tieCount + " Tie Count.")
+          return;
+        }
       }
-    }
+      return;
     }
 
     let itemsArray = ["rock", "paper", "scissors"];
