@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>completed 23</title>
+</head>
+
+<body>
+  <script>
+
+    function playMode(item) {
+      let right = 0;
+      let wrong = 0;
+      let totalPoints = right - wrong;
+
+      let computerRandom = Math.floor(Math.random() * item.length);
+      let randomized = (item[computerRandom]);
+      console.log(randomized);
+
+      while (totalPoints >= 0) {
+        let userPrompt = prompt("Type an answer from these: rock, paper, scissors");
+
+        if (userPrompt == randomized) {
+          right++;
+          console.log(right + " <--Right count");
+        }
+
+        if (userPrompt != randomized) {
+          wrong++;
+          console.log(wrong + " <--Wrong count");
+        }
+
+    if (right + wrong == 4) {
+        console.log("Your turn is over. You received--> " + wrong + " wrong and " + right + " right.")
+        return;
+      }
+    }
+    }
+
+    let itemsArray = ["rock", "paper", "scissors"];
+    console.log(playMode(itemsArray))
+
+
+  </script>
+</body>
+
+</html>
