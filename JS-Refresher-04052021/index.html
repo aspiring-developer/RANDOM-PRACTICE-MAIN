@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ########## REQUIRED META TAGS ########## -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Website Title </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+
+
+</head>
+<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+<body>
+  <!-- Main wrapper -->
+  <div class="container-fluid mx-0 px-0">
+    <!-- !########## HEADER SECTION  ########## -->
+    <header>
+      <div class="row text-center bg-dark text-white py-4 px-3">
+        <div class="col">
+          <h1 class="text-center text-white text-uppercase font-weight-bold mt-5"> To Do List App <br> </h1>
+          <p class="text-center text-white my-3"> <em> A simple vanilla JavaScript app...</em> </p>
+        </div>
+      </div>
+    </header> <!-- header ends-->
+
+    <!-- !########## MAIN SECTION -1 ########## -->
+    <div class="row my-4 mainSection1Row">
+      <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+      <div class="col p-5 bg-light text-center">
+        <h4 class="text-dark p-3" id="greetingTexts"> Create your To Do list </h4>
+        <!-- input group -->
+        <div class="input-group mx-auto">
+
+          <input type="text" name="inputField" class="form-control text-center inputField">
+        </div> <!-- input group ends -->
+        <p class="text-secondary pb-3 py-2"> Type your new list item in the field above. </p>
+        <button type="button" class="btn btn-info addBtn" id="addBtn"> Add List Item </button>
+      </div></div> <!-- .mainSection1Row ends -->
+      <div class="row mt-4 dynamicField">
+        <ol>
+          <li class="item mb-2">Dynamic list will be updated here...  <button type="button" class="btn-sm deleteBtn ml-4"> Delete </button> </li>
+        </ol>
+      </div>
+      <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+
+
+    <!-- !########## FOOTER SECTION ########## -->
+    <footer>
+      <!-- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+      <div class="text-center bg-dark text-white py-4 px-3">
+        <p> <small class="currentYearDisplayField"> </small> A simple vanilla JavaScript app &bull; City &bull; State &bull; 123-123-4567 </p>
+      </div>
+      <!-- <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
+    </footer> <!-- footer ends-->
+  </div> <!-- .mainWrapper ends -->
+
+  <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+  <!-- Required Bootstrap JavaScript -->
+  <!-- Check the latest version of CDNs @ https://getbootstrap.com/ Here, it is as of 03/01/2021 -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Current year printing custom script -->
+  <script> let currentYear = new Date().getFullYear();
+    document.querySelector(".currentYearDisplayField").innerHTML = ` &copy; ${currentYear} &bull;`;
+  </script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

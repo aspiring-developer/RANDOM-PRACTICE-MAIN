@@ -1,0 +1,9 @@
+.dynamicField {
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: aqua;*/
+  margin: 0 auto;
+  list-style-type: none;
+}
