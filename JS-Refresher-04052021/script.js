@@ -3,6 +3,7 @@ let addBtnEl = document.querySelector(".addBtn");
 let dynamicFieldEl = document.querySelector(".dynamicField");
 let itemFieldEl = document.querySelector(".itemField");
 let dynamicUlEl = document.querySelector(".dynamicUl");
+let deleteBtnEl = document.querySelector(".deleteBtn");
 
 addBtnEl.addEventListener("click", updateList);
 
@@ -20,18 +21,20 @@ function updateList(e) {
     getLocal.push(userInput);
     localStorage.setItem('item', JSON.stringify(getLocal));
   }
-// get each item
-//getLocal.forEach(each => {
-//  let eachItem = `<li class="item mb-2 itemField">${each} <button type="button" class="btn-sm deleteBtn ml-4"> Delete </button> </li>`;
-//  console.log(eachItem);
-//  dynamicFieldEl.innerText = eachItem;
-//return eachItem;
-//});
+  // get each item
 
-getLocal.forEach(function(each, index){
-  itemFieldEl.innerHTML = `${each} ${index}`;
+  let result = '';
+  getLocal.map(function (each, index) {
+    console.log(each, index);
+    result += `<li class="item mb-2 itemField">${each} <button type="button" class="btn-sm deleteBtn ml-4"> Delete </button> </li>`
+  });
+  dynamicUlEl.innerHTML = result;
+}
 
-});
+deleteBtnEl.addEventListener("click", deleteItem);
+function deleteItem(e) {
+  if(e.target.classList.includes("deleteBtn")) {
 
-
+    e.target.parentElement.remove();
+  }
 }
