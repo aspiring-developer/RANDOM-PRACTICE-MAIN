@@ -7,34 +7,38 @@ let deleteBtnEl = document.querySelector(".deleteBtn");
 
 addBtnEl.addEventListener("click", updateList);
 
-function updateList(e) {
+function updateList() {
   let userInput = inputFieldEl.value;
-  let getLocal = [];
-  e.preventDefault();
-  if (!localStorage.getItem('item')) {
+  let itemsInLocalStorage;
 
-    getLocal.push(userInput);
-    localStorage.setItem('item', JSON.stringify(getLocal));
+  if (!localStorage.getItem('itemAsKey')) {
+    itemsInLocalStorage = [];
+    // console.log(itemsInLocalStorage)
   } else {
-    let getLocalInString = localStorage.getItem('item');
-    getLocal = JSON.parse(getLocalInString);
-    getLocal.push(userInput);
-    localStorage.setItem('item', JSON.stringify(getLocal));
+    itemsInLocalStorage = JSON.parse(localStorage.getItem('itemAsKey'));
+    // console.log(JSON.parse(localStorage.getItem('items')) + " <--After JSON.parse")
   }
-  // get each item
 
-  let result = '';
-  getLocal.map(function (each, index) {
-    console.log(each, index);
-    result += `<li class="item mb-2 itemField">${each} <button type="button" class="btn-sm deleteBtn ml-4"> Delete </button> </li>`
-  });
-  dynamicUlEl.innerHTML = result;
+  itemsInLocalStorage.push(userInput);
+  // console.log(itemsInLocalStorage + " <--After pushed")
+  localStorage.setItem('itemAsKey', JSON.stringify(itemsInLocalStorage));
+  // console.log('items', JSON.stringify(itemsInLocalStorage) + " <--After JSON.stringify")
+
+    itemsInLocalStorage.forEach(function (eachItem, index) {
+    console.log(eachItem + " <--eachItem, index--> " + index )
+     dynamicUlEl.innerHTML += `<li class="item mb-2 itemField">${eachItem} &nbsp; ${index}<button type="button" class="btn-sm ml-4" onclick="deleteItem()"> Delete </button> </li>`
+
+  })
+  //updateList();
+ }
+
+function deleteItem(itemIndex) {
+  console.log("deleted!")
+  //  // getLocal.splice(itemIndex,1);
+  //  // let getLocalInString = localStorage.getItem('item');
+  //  //localStorage.setItem('item', JSON.stringify(getLocal));
+  //  //updateList();
+  // localStorage.removeItem('item');
 }
 
-deleteBtnEl.addEventListener("click", deleteItem);
-function deleteItem(e) {
-  if(e.target.classList.includes("deleteBtn")) {
-
-    e.target.parentElement.remove();
-  }
-}
+//localStorage.removeItem("item");
