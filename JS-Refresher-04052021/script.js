@@ -1,6 +1,7 @@
 let inputFieldEl = document.querySelector(".inputField");
 let addBtnEl = document.querySelector(".addBtn");
 let dynamicFieldEl = document.querySelector(".dynamicField");
+let itemFieldEl = document.querySelector(".itemField");
 
 addBtnEl.addEventListener("click", updateList);
 
@@ -17,7 +18,13 @@ function updateList(e) {
     getLocal.push(userInput);
     localStorage.setItem('item', JSON.stringify(getLocal));
   }
+// get each item
+getLocal.forEach(each => {
+  let eachItem = `<li class="item mb-2 itemField">${each} <button type="button" class="btn-sm deleteBtn ml-4"> Delete </button> </li>`;
+  console.log(eachItem);
+  dynamicFieldEl.innerText = eachItem;
+return eachItem;
+});
 
-  console.log(userInput);
-  dynamicFieldEl.innerHTML = userInput;
+
 }
