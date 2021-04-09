@@ -3,6 +3,7 @@ const inputFieldEl = document.querySelector('.input-field');
 const taskEl = document.querySelector('#task');
 const filterEl = document.querySelector('#filter');
 const taskListEl = document.querySelector('.collection');
+const clearTasksEl = document.querySelector('.clear-tasks');
 
 taskFormEl.addEventListener('submit', addTask);
 
@@ -23,7 +24,7 @@ function addTask(e) {
   link.innerHTML = '<i class="fa fa-remove deleteMe"></i>';
   li.appendChild(link);
 
- // console.log(li, taskEl.value, link)
+console.log(li)
 
   // add li to ul
   taskListEl.appendChild(li);
@@ -34,7 +35,25 @@ taskListEl.addEventListener('click', deleteTask);
 function deleteTask(e) {
 if(e.target.classList.contains('deleteMe')) {
   console.log(e.target);
+  if(confirm("Are you sure to delete it?")) {
   e.target.parentElement.parentElement.remove();
 }
 }
+}
 
+// CLEAR TASKS
+clearTasksEl.addEventListener('click', clearTask);
+function clearTask() {
+  while(taskListEl.firstChild) {
+    taskListEl.removeChild(taskListEl.firstChild);
+  }
+}
+
+
+//// FILTER TASK ITEM
+//filterEl.addEventListener('keypress', filterItem)
+//function filterItem() {
+//  if(filterEl.value == taskListEl.childNodes.value) {
+//  console.log("Filtered!!!");
+//  }
+//}
