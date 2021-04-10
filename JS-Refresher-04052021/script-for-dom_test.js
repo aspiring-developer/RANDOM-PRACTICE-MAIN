@@ -13,9 +13,9 @@ function addTask(e) {
   // create li
   let li = document.createElement('li');
   // add css to li
-   // li.classList.add('collection-item'); OR
+  // li.classList.add('collection-item'); OR
   li.className = 'collection-item';
-// get the user input value in li
+  // get the user input value in li
   let userInput = document.createTextNode(taskEl.value);
   li.appendChild(userInput);
   // add anchor element
@@ -24,7 +24,7 @@ function addTask(e) {
   link.innerHTML = '<i class="fa fa-remove deleteMe"></i>';
   li.appendChild(link);
 
-console.log(li)
+  console.log(li)
 
   // add li to ul
   taskListEl.appendChild(li);
@@ -33,27 +33,35 @@ console.log(li)
 // DELETE A TASK // targeting the ul (taskListEl) because it needed event delegation
 taskListEl.addEventListener('click', deleteTask);
 function deleteTask(e) {
-if(e.target.classList.contains('deleteMe')) {
-  console.log(e.target);
-  if(confirm("Are you sure to delete it?")) {
-  e.target.parentElement.parentElement.remove();
-}
-}
+  if (e.target.classList.contains('deleteMe')) {
+    console.log(e.target);
+    if (confirm("Are you sure to delete it?")) {
+      e.target.parentElement.parentElement.remove();
+    }
+  }
 }
 
 // CLEAR TASKS
 clearTasksEl.addEventListener('click', clearTask);
 function clearTask() {
-  while(taskListEl.firstChild) {
+  while (taskListEl.firstChild) {
     taskListEl.removeChild(taskListEl.firstChild);
   }
 }
 
+// FILTER TASK ITEM
+filterEl.addEventListener('keyup', filterItem)
+function filterItem(e) {
+  let searchingText = e.target.value.toLowerCase();
+  console.log(searchingText);
+  document.querySelectorAll('.collection-item').forEach(function (eachTask) {
+    let item = eachTask.firstChild.textContent;
+    console.log(eachTask.firstChild.textContent + " <--eachTask")
+    if (item.toLowerCase().indexOf(searchingText) !== -1) {
+      eachTask.style.display = 'block';
+    } else {
+      eachTask.style.display = 'none';
+    }
+  })
+}
 
-//// FILTER TASK ITEM
-//filterEl.addEventListener('keypress', filterItem)
-//function filterItem() {
-//  if(filterEl.value == taskListEl.childNodes.value) {
-//  console.log("Filtered!!!");
-//  }
-//}
