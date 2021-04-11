@@ -51,11 +51,5 @@ function filterTask(e) {
       eachItem.style.display = 'none';
     }
   })
-
-
-
-
-
-
 }
 

@@ -48,14 +48,25 @@ function filterTasks(e) {
   let searchingText = filterEl.value;
   let taskItems = document.querySelectorAll('.collection-item');
   taskItems.forEach(function (eachItem) {
-    console.log(eachItem.firstChild.textContent)
-if(searchingText.indexOf(eachItem.firstChild.textContent) !== -1) {
-  eachItem.firstChild.style.display = 'block';
-  //console.log("FOUND!!!");
+if(eachItem.textContent.indexOf(searchingText) !== -1) {
+  eachItem.style.display = 'block';
 } else {
   eachItem.style.display = 'none';
-
-  //console.log("NOT FOUND!!!");
 }
   })
 }
+//********************************************************** */
+// FILTER FEATURE
+//filterEl.addEventListener('keyup', filterTask);
+//function filterTask(e) {
+//  let userInputText = e.target.value;
+//  console.log(userInputText);
+//  let taskItemInList = document.querySelectorAll('.collection-item');
+//  taskItemInList.forEach(function (eachItem) {
+//    if (eachItem.firstChild.textContent.indexOf(userInputText) !== -1) {
+//      eachItem.style.display = 'block';
+//    } else {
+//      eachItem.style.display = 'none';
+//    }
+//  })
+//}
