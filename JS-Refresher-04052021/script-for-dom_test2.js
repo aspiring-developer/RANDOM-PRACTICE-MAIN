@@ -49,8 +49,9 @@ function filterTask(e) {
   console.log(allTasks)
   allTasks.forEach(function (eachTask) {
 
-    if (userTypedTexts.indexOf(eachTask) !== -1) {
-      console.log(eachTask);
+    if (userTypedTexts.indexOf(eachTask) === -1) {
+      console.log("%cHello", "color:red; font-weight:bold; font-size: 20px");
+      console.log("%cThis is a red text", "color:red");
     }
   })
 }
