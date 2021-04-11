@@ -41,17 +41,16 @@ function clearTasks(e) {
 
 // FILTER TASK
 filterEl.addEventListener('keyup', filterTask);
-function filterTask(e) {
-  let userTypedTexts = e.target.value;
-  console.log(e.target.value)
-
+function filterTask() {
+  let userTypedTexts = filterEl.value;
   let allTasks = document.querySelectorAll('.collection-item');
-  console.log(allTasks)
   allTasks.forEach(function (eachTask) {
-
-    if (userTypedTexts.indexOf(eachTask) === -1) {
-      console.log("%cHello", "color:red; font-weight:bold; font-size: 20px");
-      console.log("%cThis is a red text", "color:red");
+    let item = eachTask.firstChild.textContent;
+    if (item.indexOf(userTypedTexts) !== -1) {
+      eachTask.style.display = 'block';
+      console.log(eachTask)
+    } else {
+      eachTask.style.display = 'none';
     }
   })
 }
