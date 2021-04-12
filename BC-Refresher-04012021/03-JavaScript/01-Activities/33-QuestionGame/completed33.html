@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+</head>
+
+<body>
+
+  <script>
+    let questions = [
+      { q: "California is not a state in Canada", a: "t" },
+      { q: "It is not true that Canada is north of the U.S.", a: "f" },
+      { q: "Patients should not ask doctors questions", a: "f" },
+      //{ q: "Carrot is a root vegetable", a: "t" },
+      //{ q: "Milk is considered a source of vitamin D ", a: "t" },
+      //{ q: "The sky color is purple", a: "f" },
+      //{ q: "Water doesn't have a color", a: "t" },
+      //{ q: "Earth is larger than sun", a: "f" },
+      //{ q: "USA is in middle east", a: "f" },
+      //{ q: "Morocco is in African continent", a: "t" }
+    ]
+
+    function askQuestion() {
+      let score = 0;
+      for (let i = 0; i < questions.length; i++) {
+        let userAnswer = prompt(questions[i].q);
+        console.log(questions[i].q + " <--questions[i].q")
+        console.log(questions[i].a + " <--questions[i].a")
+        if (userAnswer === true && questions[i].a === "t") {
+          console.log("Right");
+          score++;
+
+        } else if (userAnswer === true && questions[i].a === "f" || userAnswer === false && questions[i].a === "t") {
+          console.log("Wrong");
+
+        }
+      } console.log(score);
+    }
+    askQuestion();
+  </script>
+</body>
+
+</html>

@@ -10,8 +10,9 @@ var joanOfArcInfoValues = [
   "Stands for French unity and nationalism."
 ];
 
-var input = "Real Name";
+//var input = "Grew Up Where";
 
-// How do I use input to get "Jehanne la Pucelle."
-var index = joanOfArcInfoParts.indexOf(input);
+// How do I use input to get "Domremy, a village in northeastern France."
+var index = joanOfArcInfoParts.indexOf("Grew Up Where");
 var valuesIndex = joanOfArcInfoValues[index];
+
