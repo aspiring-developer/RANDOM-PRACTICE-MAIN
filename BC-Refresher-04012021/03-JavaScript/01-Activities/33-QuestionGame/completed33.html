@@ -25,16 +25,16 @@
     function askQuestion() {
       let score = 0;
       for (let i = 0; i < questions.length; i++) {
-        let userAnswer = confirm(questions[i].q);
-        if (userAnswer === true && questions[i].a === "t" || userAnswer === false && questions[i].a === "f") {
-          alert("Right");
+        let answer = confirm(questions[i].q);
+        console.log(questions[i].q);
+        if (answer === true && questions[i].a === 't' || answer === false && questions[i].a === 'f') {
+          console.log("RIGHT!");
           score++;
-        }
-        else if (userAnswer === false && questions[i].a === "t" || userAnswer === true && questions[i].a === "f") {
-          alert("Wrong");
+        } else if (answer === false && questions[i].a === 't' || answer === true && questions[i].a === 'f') {
+          console.log("WRONG!");
         }
       }
-      console.log(`Your score is ${score}/${questions.length}`);
+      console.log(score);
     }
     askQuestion();
   </script>
