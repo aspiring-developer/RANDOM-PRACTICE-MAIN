@@ -10,11 +10,13 @@ function addTask(e) {
   e.preventDefault();
   const li = document.createElement('li');
   li.className = 'collection-item';
-  li.append(document.createTextNode(taskInputEl.value));
+  li.appendChild(document.createTextNode(taskInputEl.value));
   const link = document.createElement('a');
-  link.innerHTML = '<i class="fa fa-remove secondary-content delete-me"></i>';
+  link.innerHTML = '<i class="fa fa-remove delete-me secondary-content"></i>'
   li.appendChild(link);
   taskListEl.appendChild(li);
+
+  storeTaskInLocalStorage(taskInputEl.value);
 
   taskInputEl.value = '';
   taskInputEl.focus();
@@ -28,23 +30,55 @@ function deleteTask(e) {
   }
 }
 
-// CLEAR FEATURE
-clearTasksEl.addEventListener('click', clearTasks);
-function clearTasks() {
+// CLEAR TASK FEATURE
+clearTasksEl.addEventListener('click', clearTask);
+function clearTask() {
   taskListEl.remove();
 }
 
-// FILTER FEATURE
+// FILTER TASK FEATURE
 filterEl.addEventListener('keyup', filterTask);
 function filterTask() {
-let searchingText = filterEl.value;
-let taskInList = document.querySelectorAll('.collection-item');
-taskInList.forEach(function(eachItem) {
-  let eachItemText = eachItem.textContent;
-  if(eachItemText.indexOf(searchingText) !== -1) {
-    eachItem.style.display = 'block';
+  let typedText = filterEl.value;
+  let tasksInList = document.querySelectorAll('.collection-item');
+  tasksInList.forEach(function (eachTask) {
+    let textInEachTask = eachTask.textContent;
+    if (textInEachTask.indexOf(typedText) != -1) {
+      eachTask.style.display = 'block';
+    } else {
+      eachTask.style.display = 'none';
+    }
+  })
+}
+
+// STORE IN LS
+function storeTaskInLocalStorage(item) {
+  let tasks;
+  if (!localStorage.getItem('tasks')) {
+    tasks = [];
   } else {
-    eachItem.style.display = 'none';
+    tasks = JSON.parse(localStorage.getItem('tasks'))
   }
-})
+  tasks.push(item);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// CALLING FROM LS
+document.addEventListener('DOMContentLoaded', getTasksFromLS);
+function getTasksFromLS() {
+  let tasks;
+  if (!localStorage.getItem('tasks')) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
+  tasks.forEach(function (eachItem) {
+    const li = document.createElement('li');
+    li.className = 'collection-item';
+    li.appendChild(document.createTextNode(eachItem));
+    const link = document.createElement('a');
+    link.innerHTML = '<i class="fa fa-remove delete-me secondary-content"></i>'
+    li.appendChild(link);
+    taskListEl.appendChild(li);
+  })
 }
