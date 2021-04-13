@@ -16,20 +16,18 @@ function addTask(e) {
   li.appendChild(link);
   taskListEl.appendChild(li);
 
-  //>>>>>>>>>>>>>>> calling LS add function
-  document.addEventListener('load', addToLocalStorage);
-  function addToLocalStorage(task) {
-    let tasks;
-    if (!localStorage.getItem("tasks")) {
-      tasks = [];
-    } else {
-      tasks = JSON.parse(localStorage.getItem('tasks'));
-    }
-    tasks.push(task);
-    console.log(tasks);
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+  //>>>>>>>>>>>>>>> LS ADD FEATURE
+function addToLocalStorage(task) {
+  let tasks;
+  if(!localStorage.getItem('tasks')) {
+    tasks=[];
+  }else{
+    tasks=JSON.parse(localStorage.getItem('tasks'));
   }
-  addToLocalStorage(taskInputEl.value)
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+addToLocalStorage(taskInputEl.value);
   //<<<<<<<<<<<<<<
 
   taskInputEl.value = '';
