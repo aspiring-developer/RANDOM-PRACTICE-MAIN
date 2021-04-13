@@ -17,7 +17,7 @@ function addTask(e) {
   taskListEl.appendChild(li);
 
   //>>>>>>>>>>>>>>> calling LS add function
-  //document.addEventListener('DOMContentLoaded', addToLocalStorage);
+  document.addEventListener('load', addToLocalStorage);
   function addToLocalStorage(task) {
     let tasks;
     if (!localStorage.getItem("tasks")) {
@@ -29,7 +29,7 @@ function addTask(e) {
     console.log(tasks);
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
-  addToLocalStorage(tasks)
+  addToLocalStorage(taskInputEl.value)
   //<<<<<<<<<<<<<<
 
   taskInputEl.value = '';
