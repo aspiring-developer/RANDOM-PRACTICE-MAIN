@@ -27,6 +27,8 @@ document.addEventListener('click', deleteTask);
 function deleteTask(e) {
   if (e.target.classList.contains('delete-me')) {
     e.target.parentElement.parentElement.remove();
+  deleteFromLS(e.target.parentElement.parentElement);
+
   }
 }
 
@@ -34,7 +36,7 @@ function deleteTask(e) {
 clearTasksEl.addEventListener('click', clearTask);
 function clearTask() {
   taskListEl.remove();
-  removeFromLS();
+  clearLS();
 }
 
 // FILTER FEATURE
@@ -66,7 +68,7 @@ function storeInLS(task) {
 }
 
 // CLEAR LOCAL STORAGE
-function removeFromLS() {
+function clearLS() {
   if (localStorage.getItem('tasks')) {
     localStorage.clear();
   }
@@ -93,17 +95,7 @@ function getTask() {
 }
 
 // DELETE FROM LOCAL STORAGE
-document.addEventListener('click', deleteTask);
-function deleteTask(e) {
-  if (e.target.classList.contains('delete-me')) {
-    e.target.parentElement.parentElement.remove();
-  }
-
-  //let typedValue = filterEl.value;
-  //let taskInTaskList = document.querySelectorAll('.collection-item');
-  //taskInTaskList.forEach(function (eachTask) {
-  //  let textInEachTask = eachTask.textContent;
-
+function deleteFromLS(taskItem) {
   let tasks;
   if (!localStorage.getItem('tasks')) {
     tasks = [];
@@ -111,8 +103,9 @@ function deleteTask(e) {
     tasks = JSON.parse(localStorage.getItem('tasks'));
   }
   tasks.forEach(function (eachTask, index) {
-if(e.textContent === eachTask) {
-  tasks.splice(index, 1);
-}
+    if (taskItem.textContent === eachTask) {
+      tasks.splice(index, 1);
+    }
   })
+  tasks = localStorage.setItem('tasks', JSON.stringify(tasks));
 }
