@@ -16,19 +16,8 @@ function addTask(e) {
   li.appendChild(link);
   taskListEl.appendChild(li);
 
-  //>>>>>>>>>>>>>>> LS ADD FEATURE
-function addToLocalStorage(task) {
-  let tasks;
-  if(!localStorage.getItem('tasks')) {
-    tasks=[];
-  }else{
-    tasks=JSON.parse(localStorage.getItem('tasks'));
-  }
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
-addToLocalStorage(taskInputEl.value);
-  //<<<<<<<<<<<<<<
+  // Calling the LS add feature
+  addToLocalStorage(taskInputEl.value);
 
   taskInputEl.value = '';
   taskInputEl.focus();
@@ -64,3 +53,37 @@ function filterTasks() {
     }
   })
 }
+
+//>>>>>>>>>>>>>>> LOCAL STORAGE FEATURES:
+// ADD TO LS FEATURE
+function addToLocalStorage(task) {
+  let tasks;
+  if (!localStorage.getItem('tasks')) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// RETRIEVE FROM LS AND PRINT TO DOM FEATURE
+document.addEventListener('DOMContentLoaded', printToDOM);
+function printToDOM() {
+  let tasks;
+  if (!localStorage.getItem('tasks')) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+  tasks.forEach(function (eachTask) {
+    const li = document.createElement('li');
+    li.className = 'collection-item';
+    li.appendChild(document.createTextNode(eachTask));
+    const link = document.createElement('a');
+    link.innerHTML = '<i class="fa fa-remove delete-me secondary-content"></i>';
+    li.appendChild(link);
+    taskListEl.appendChild(li);
+  })
+}
+//<<<<<<<<<<<<<<
