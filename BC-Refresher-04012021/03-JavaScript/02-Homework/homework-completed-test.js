@@ -15,12 +15,7 @@ const numberCharacter = "0123456789";
 
 passwordButtonEl.addEventListener('click', generatePassword);
 function generatePassword() {
-  //selectedCharacter();
-
-}
-
 let checkedCharacters = '';
-function selectedCharacter() {
   // Checking if the character option is checked or not
   if (!lowerCheckboxEl.checked && !upperCheckboxEl.checked && !numberCheckboxEl.checked && !specialCheckboxEl.checked) {
     alert("You must check at least one character option!");
