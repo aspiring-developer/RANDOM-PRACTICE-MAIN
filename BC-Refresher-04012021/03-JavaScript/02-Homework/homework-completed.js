@@ -36,8 +36,7 @@ function selectedCharacter() {
   if (upperCheckboxEl.checked) { checkedCharacters.push(upperCaseCharacter); }
   if (numberCheckboxEl.checked) { checkedCharacters.push(numberCharacter); }
   if (specialCheckboxEl.checked) { checkedCharacters.push(specialCharacter); }
-  //console.log(checkedCharacters);
-  //return checkedCharacters;
+console.log(checkedCharacters)
 
   // Randomising selected characters
   function randomizeCharacter(random) {
@@ -45,8 +44,26 @@ function selectedCharacter() {
     for (let i = 0; i < checkedCharacters.length; i++) {
       randomizedArray.push(random[i].sort(() => Math.random() - 0.5));
     }
-    console.log(randomizedArray);
+    //console.log(randomizedArray);
+
+    // Processing randomized characters to generate password
+    let abc = [];
+    for (let k = 0; k < randomizedArray.length; k++) {
+      abc.push(randomizedArray[k]);
+      console.log(abc);
+    }
+
+    let newOne = [];
+    for (let j = 0; j < abc.length; j++) {
+      const elementJ = abc[j];
+      //newOne.push(elementJ)
+      //console.log(newOne);
+      newOne = newOne.concat(elementJ)
+      console.log(newOne);
+      return newOne;
+    }
+    //console.log(elementJ + " <--elementJ")
   }
-  randomizeCharacter(checkedCharacters)
+  randomizeCharacter(checkedCharacters);
 }
 
