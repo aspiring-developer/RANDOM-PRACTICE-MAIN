@@ -24,12 +24,17 @@
         <div class="top-container-row">
           <div class="col top-container-column">
             <h1> PASSWORD GENERATOR </h1>
-            <p> Set character count. How many do you want? &nbsp; &nbsp; <input type="number" id="characterCounter" value="20" min="8" max="128"> &nbsp; &nbsp; Minimum 8 to maximum 128 allowed. </p>
+            <p> Set character count. How many do you want? &nbsp; &nbsp; <input type="number" id="characterCounter" value="8" min="8" max="128"> &nbsp; &nbsp; Minimum 8 to maximum 128 allowed. </p>
             <p> Check each box to add lowercase, numbers or special characters. <br>
-              <span class="checkboxStyle"> <input type="checkbox" id="lowerCheckbox" /> Lowercase &nbsp; &nbsp;
-                &nbsp; <input type="checkbox" id="numberCheckbox" /> Number &nbsp; &nbsp;
-                &nbsp; <input type="checkbox" id="specialCheckbox" /> Special Character </span>
-              <br> <em><strong>Note: By default, the uppercase letters are selected. </em> </strong>
+              <span class="checkboxStyle checkBoxes">
+                <input type="checkbox" id="lowerCheckbox" class="eachCheckBox" /> Lowercase &nbsp; &nbsp;
+                &nbsp;
+                <input type="checkbox" id="upperCheckbox" class="eachCheckBox"  /> Uppercase &nbsp; &nbsp;
+                &nbsp;
+                <input type="checkbox" id="numberCheckbox" class="eachCheckBox"  /> Number &nbsp; &nbsp;
+                &nbsp;
+                <input type="checkbox" id="specialCheckbox" class="eachCheckBox"  /> Special Character </span>
+              <br>
             </p>
             <p> Your Password is displayed in the field below. <input type="text" id="passwordResult" size="80" /> </p> <br>
             <p> Click the Generate Password button to have your randomized password. </p>
