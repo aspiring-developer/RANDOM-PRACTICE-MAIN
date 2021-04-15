@@ -15,9 +15,9 @@ const numberCharacter = "0123456789";
 
 passwordButtonEl.addEventListener('click', generatePassword);
 function generatePassword() {
-  selectedCharacter();
-}
+  //selectedCharacter();
 
+}
 
 let checkedCharacters = '';
 function selectedCharacter() {
@@ -26,25 +26,31 @@ function selectedCharacter() {
     alert("You must check at least one character option!");
   }
   // Collecting selected character option
-  if (lowerCheckboxEl.checked) { checkedCharacters+=(lowerCaseCharacter); }
-  if (upperCheckboxEl.checked) { checkedCharacters+=(upperCaseCharacter); }
-  if (numberCheckboxEl.checked) { checkedCharacters+=(numberCharacter); }
-  if (specialCheckboxEl.checked) { checkedCharacters+=(specialCharacter); }
+  if (lowerCheckboxEl.checked) { checkedCharacters += (lowerCaseCharacter); }
+  if (upperCheckboxEl.checked) { checkedCharacters += (upperCaseCharacter); }
+  if (numberCheckboxEl.checked) { checkedCharacters += (numberCharacter); }
+  if (specialCheckboxEl.checked) { checkedCharacters += (specialCharacter); }
 
   console.log(checkedCharacters);
   console.log(checkedCharacters.length);
 
-
   // Randomising selected characters
+  let randomizedCharacters = [];
   function randomizeCharacter(random) {
-    let randomizedCharacters = '';
-    for (let i = 0; i < checkedCharacters.length; i++) {
-      randomizedCharacters += Math.floor(Math.random() * characterCounterEl.value)
-
-      //randomizedArray.push(random[i].sort(() => Math.random() - 0.5));
+    for (let i = 0; i < characterCounterEl.value; i++) {
+      randomizedCharacters.push(checkedCharacters.charAt(Math.floor(Math.random() * checkedCharacters.length)));
     }
     console.log(randomizedCharacters);
+    let joinedRandomizedCharacters = randomizedCharacters.join('');
+    console.log(joinedRandomizedCharacters);
+    passwordResultEl.value = joinedRandomizedCharacters;
+    return joinedRandomizedCharacters;
   }
   randomizeCharacter(checkedCharacters);
 }
+
+
+
+
+
 
