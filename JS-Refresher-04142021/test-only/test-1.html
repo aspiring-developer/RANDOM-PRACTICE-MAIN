@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Only</title>
+</head>
+
+<body>
+  <h1>Open browser console to view results...</h1>
+
+  <script>
+    console.log('*********************************************************');
+    //########### STUDY OF PROTOTYPE
+    // Without prototype
+    function Painting(name, medium, price) {
+      this.name = name,
+        this.medium = medium,
+        this.price = price;
+      this.paintingInfo = function (info) {
+        return ` ${this.name} ${this.medium} ${this.price} ${info} `;
+      }
+    }
+    const painting1 = new Painting("Bond Park View", "Oil", 350);
+    const painting2 = new Painting("Abandoned", "Oil", 400);
+    const painting3 = new Painting("Crabtree Trail", "Oil", 350);
+
+    console.log(painting1);
+    //console.log(painting2);
+    //console.log(painting3);
+    console.log(`${painting1.paintingInfo("was my first painting.")}`);
+    //console.log(painting2.paintingInfo("was my second painting."));
+    //console.log(painting3.paintingInfo("was my third painting."));
+    console.log('*********************************************************');
+    //************************************************************
+    // With prototype
+    function Car(make, model, year) {
+      this.make = make,
+        this.model = model,
+        this.year = year;
+    }
+    const car1 = new Car("Toyota", "Corolla", 1997);
+    const car2 = new Car("Honda", "Accord", 2007);
+    const car3 = new Car("Honda", "CR-V", 2018);
+
+    Car.prototype.carInfo = function (info) {
+      return ` ${this.make} ${this.model} ${this.year} ${info} `;
+    }
+    console.log(car1);
+    console.log(car1.carInfo("was my first car."));
+    console.log('*********************************************************');
+
+    Car.prototype.otherInformation = function (information) {
+      return ` ${this.make} ${this.model} ${information} `;
+    }
+    console.log(car2);
+    console.log(car2.otherInformation("is my favorite car."));
+    console.log('*********************************************************');
+
+  </script>
+</body>
+
+</html>
