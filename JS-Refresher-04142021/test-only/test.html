@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Only</title>
+</head>
+
+<body>
+
+
+  <script>
+    // Creating constructor object
+    function Person(name, age, dob) {
+      this.name = name,
+        this.age = age,
+        this.birthday = new Date(dob);
+        this.calculateAge = function() {
+          const difference = Date.now() - this.birthday.getTime();
+          //console.log(difference, Date.now(), this.birthday.getTime());
+          const ageDate = new Date(difference);
+          //console.log(ageDate);
+          return ageDate.getUTCFullYear() - 1970;
+        }
+
+    }
+    const person1 = new Person("Mike", 20, "01-01-1975");
+    console.log(person1.name, person1.age, person1.birthday);
+    console.log(person1.calculateAge());
+
+
+
+
+    //*************************************************
+    // Creating constructor object
+    function Car(make, model, year) {
+      this.make = make,
+        this.model = model,
+        this.year = year;
+    }
+    const car1 = new Car("Toyota", "Corolla", 1997);
+    //console.log(`My first car was ${car1.make} ${car1.model} and it was made in ${car1.year}`);
+  </script>
+</body>
+
+</html>

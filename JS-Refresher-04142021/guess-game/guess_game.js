@@ -1,5 +1,3 @@
-//alert("Working...")
-
 // DOM Elements
 const guessFormEl = document.getElementById('guess-form');
 const inputFieldEl = document.getElementById('inputField');
@@ -9,7 +7,7 @@ const messageTextsEl = document.getElementById('messageTexts');
 // Add event listener to the form
 guessFormEl.addEventListener('submit', processGame);
 
-let userResponse = inputFieldEl.value;
+let userResponse = parseInt(inputFieldEl.value);
 let allowedAttempt = 3;
 let attemptCount = 1;
 let message = '';
@@ -23,15 +21,11 @@ console.log(randomized, typeof(randomized));
 // Process game
 function processGame(e) {
   e.preventDefault();
-  userResponse = parseInt(userResponse);
-  console.log(parseInt(userResponse))
-  console.log(typeof(userResponse));
-  console.log(parseInt(userResponse));
-
+  console.log(userResponse);
+console.log(typeof(userResponse));
 if(userResponse === randomized) {
   console.log("Right! You won!");
 } else {
   console.log("Wrong! It is not the number!");
 }
-
 }
