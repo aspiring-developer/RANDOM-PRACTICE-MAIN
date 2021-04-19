@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Practice</title>
+</head>
+
+<body>
+  <h1>Check console window for result</h1>
+  <!--/////////////////////////////////////////////////////////-->
+  <!--
+BMI = mass/height**2 OR
+BMI = mass/(height*height)
+mass in kg
+height in meter
+1. Store Mark's and John's mass and height in vars
+2. Calculate their BMI using the formula above
+3. Create a boolean variable 'markHigherBMI' if he has higher BMI than John or not
+TEST DATA - 1:
+Mark weighs 78 kg and is 1.69 meter tall
+John weighs 92 kg and is 1.95 meter tall
+TEST DATA - 2:
+Mark weighs 95 kg and is 1.88 meter tall
+John weighs 85 kg and is 1.76 meter tall
+ -->
+  <!--<script>
+    let markWeight = 0;
+    let johnWeight = 0;
+    let markHeight = 0;
+    let johnHeight = 0;
+    let markHasHigherBMI = false;
+    function bmiCalculator(weight, height) {
+      let bmi = parseInt(weight / (height * height));
+      return bmi;
+    }
+    console.log(bmiCalculator(78, 1.69));-->
+
+  <script>
+    let markBMI = 0;
+    let johnBMI = 0;
+    let markHasHigherBMI = false;
+    function bmiCalculator(markWeight, markHeight, johnWeight, johnHeight) {
+      markBMI = parseFloat(markWeight / (markHeight * markHeight)).toFixed(2);
+      console.log(markBMI + " <--Mark's BMI");
+
+      johnBMI = parseFloat(johnWeight / (johnHeight * johnHeight)).toFixed(2);
+      console.log(johnBMI + " <--John's BMI");
+
+      if (markBMI > johnBMI) {
+        markHasHigherBMI = true;
+        console.log(markHasHigherBMI + " <--markHasHigherBMI");
+      } else {
+        markHasHigherBMI = false;
+        console.log(markHasHigherBMI + " <--markHasHigherBMI");
+      }
+    }
+    bmiCalculator(78, 1.69, 92, 1.95) // Test case 1
+    //bmiCalculator(95, 1.88, 85, 1.76) // Test case 2
+
+  </script>
+</body>
+
+</html>
