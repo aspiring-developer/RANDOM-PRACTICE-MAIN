@@ -59,6 +59,16 @@
     console.log(car2.otherInformation("is my favorite car."));
     console.log('*********************************************************');
 
+    Car.prototype.changeYear = function (change) {
+      return this.year = change;
+    }
+    console.log(car3);
+    console.log(car3.changeYear(2019));
+    console.log('*********************************************************');
+
+    console.log(car2.hasOwnProperty("model")); // Returns true
+    console.log(car2.hasOwnProperty("color")); // Returns false
+
   </script>
 </body>
 
