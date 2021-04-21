@@ -24,35 +24,54 @@
     //myName = "SSS";
     //console.log(myName);
     /////////////////////////////////////////////////////
-    const names = ["SS", "PS", "DS", "BS"];
-    console.log(names, " <--Original");
-    names[1] = "LS";
-    console.log(names, " <--Replaced");
-    names.push('NEW', "NEW2");
-    console.log(names, " <--Adding 2 at end");
-    names.pop();
-    console.log(names, " <--Removing 1 from end");
-    names.unshift("AAA", "BBB");
-    console.log(names, " <--Adding 2 at start");
-    names.shift();
-    console.log(names, " <--Removing 1 from start");
+    //const names = ["SS", "PS", "DS", "BS"];
+    //console.log(names, " <--Original");
+    //names[1] = "LS";
+    //console.log(names, " <--Replaced");
+    //names.push('NEW', "NEW2");
+    //console.log(names, " <--Adding 2 at end");
+    //names.pop();
+    //console.log(names, " <--Removing 1 from end");
+    //names.unshift("AAA", "BBB");
+    //console.log(names, " <--Adding 2 at start");
+    //names.shift();
+    //console.log(names, " <--Removing 1 from start");
 
-    console.log(names.indexOf("DS"));
-    console.log(names.indexOf("RRS"));
+    //console.log(names.indexOf("DS"));
+    //console.log(names.indexOf("RRS"));
     //////////////////////////////////////////////////////
-    const car = {
-      make: "Toyota",
-      model: "Corolla",
-      year: 1997,
-      age: function () {
-       //  return 2021 - car.year;
-       console.log(this)
-       return 2021 - this.year;
-      }
-    }
-    console.log(car.age());
-    console.log(this);
+    //const car = {
+    //  make: "Toyota",
+    //  model: "Corolla",
+    //  year: 1997,
+    //  age: function () {
+    //   //  return 2021 - car.year;
+    //   console.log(this)
+    //   return 2021 - this.year;
+    //  }
+    //}
+    //console.log(car.age());
+    //console.log(this);
 
+    //////////////////////////////////////////////////////
+    const temp = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+    // ignore error
+    // find min and min value
+    // subtract min from max
+
+    function temperature(num) {
+      let max = -1000000;
+      let min = 1000000;
+      for (let i = 0; i < num.length; i++) {
+        if (num[i] > max) { max = num[i] };
+        if (num[i] < min) { min = num[i] };
+      }
+      let amplitude = max - (-min);
+      console.log(max, min, amplitude);
+    }
+    temperature(temp);
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
   </script>
 
