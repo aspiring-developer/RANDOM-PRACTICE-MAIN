@@ -16,18 +16,48 @@ function temperature(num) {
   }
   let amplitude = max - (-min);
 
-//******************************/
- function second() {
+  //******************************/
+  function second() {
     let name = "Me";
     console.log(name + " <--From second function")
   }
   second();
-//********************************/
+  //********************************/
   console.log(max, min, amplitude);
   return { max, min, amplitude };
 }
 console.log(temperature(temp));
 
 //////////////////////////////////////////////////////
+const calcAge = function (birthYear) {
+  //'use strict';
+  //console.log(2037 - birthYear);
+  console.log(this);
+}
+calcAge(1991);
 //////////////////////////////////////////////////////
+function test(yob) {
+  'use strict';
+  //console.log(2037 - yob);
+  console.log(this);
+}
+test(1991);
 //////////////////////////////////////////////////////
+const test2 = (year) => {
+  //'use strict';
+  //console.log(2037 - year);
+  console.log(this);
+}
+test2(1991);
+
+//////////////////////////////////////////////////////
+const jonas = {
+  firstName: 'jonas',
+  year: 1991,
+  calcAge: function () {
+    console.log(this);
+  }
+}
+jonas.calcAge();
+
+//
