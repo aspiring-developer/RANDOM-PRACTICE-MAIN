@@ -15,10 +15,19 @@ function temperature(num) {
     if (num[i] < min) { min = num[i] };
   }
   let amplitude = max - (-min);
+
+//******************************/
+ function second() {
+    let name = "Me";
+    console.log(name + " <--From second function")
+  }
+  second();
+//********************************/
   console.log(max, min, amplitude);
-  return {max, min, amplitude};
+  return { max, min, amplitude };
 }
-console.table(temperature(temp))
+console.log(temperature(temp));
+
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
