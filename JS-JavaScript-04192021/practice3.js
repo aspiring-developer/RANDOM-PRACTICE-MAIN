@@ -80,16 +80,13 @@ console.log(item1, item2)
 //Destructuring
 let myArray = [10, 20, 30, 40, 50];
 
-[a, myArray.length] = myArray;
-console.log(a, myArray.length);
+[a, b] = myArray;
+console.log(a, myArray);
 
-[a, b, ...rest] = myArray;
-console.log(a + " A", b + " B", rest + " Rest");
+[a, b, ...c] = myArray;
+console.log(a + " <--A | ", b + " <--B | ", c + " <--C");
 
-//[a, b, ...rest] = [10, 20, 30, 40, 50];
 
-//console.log(rest);
-//// expected output: Array [30,40,50]
 
 //////////////////////////////////////////////////////
 
