@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 // Data needed for first part of the section
 const restaurant = {
@@ -9,32 +9,78 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
   order: function (starterMenuItem, mainMenuItem) {
     return [this.starterMenu[starterMenuItem], this.mainMenu[mainMenuItem]]
+  },
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    }
+  },
+  orderDelivery: function (obj) {
+    console.log(obj)
   }
 
 };
-console.log(restaurant);
-let [main, , , secondary] = restaurant.categories;
-console.log(main, secondary);
+restaurant.orderDelivery({
+  time: '22:30',
+  address: "123 ABC Ln"
+})
 
-//SWITCHING VARIABLES
-[main, secondary] = [secondary, main]
-console.log(main, secondary);
-
-// Receive 2 return values from a function
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter + " AND " + mainCourse);
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 
 
+////////////////////////////////////////////////////////////////////////////////
+//console.log(restaurant);
+//let [main, , , secondary] = restaurant.categories;
+//console.log(main, secondary);
+
+////SWITCHING VARIABLES
+//[main, secondary] = [secondary, main]
+//console.log(main, secondary);
+
+//// Receive 2 return values from a function
+//const [starter, mainCourse] = restaurant.order(2, 0);
+//console.log(starter + " AND " + mainCourse);
+////////////////////////////////////////////////////////////////////////////////
 
 
 
+function OuterFunction() {
+  var outerVariable = 100;
 
+  function InnerFunction() {
+    console.log(outerVariable);
+  }
+  //return InnerFunction;
+  InnerFunction();
+}
+//var innerFunc = OuterFunction();
 
+//innerFunc(); // 100
 
+OuterFunction();
+////////////////////////////////////////////////////////////////////////////////
+function Counter() {
+  var counter = 0;
 
+  function IncreaseCounter() {
+      return counter++;
+  };
+  return IncreaseCounter;
+}
 
-
-
+var result = Counter();
+console.log(result()); // 0
+console.log(result()); // 1
 ////////////////////////////////////////////////////////////////////////////////
 // Data needed for a later exercise
 //const flights =
