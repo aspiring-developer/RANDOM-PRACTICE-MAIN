@@ -7,10 +7,22 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  order: function (starterMenuItem, mainMenuItem) {
+    return [this.starterMenu[starterMenuItem], this.mainMenu[mainMenuItem]]
+  }
 
 };
 console.log(restaurant);
+let [main, , , secondary] = restaurant.categories;
+console.log(main, secondary);
 
+//SWITCHING VARIABLES
+[main, secondary] = [secondary, main]
+console.log(main, secondary);
+
+// Receive 2 return values from a function
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter + " AND " + mainCourse);
 
 
 
