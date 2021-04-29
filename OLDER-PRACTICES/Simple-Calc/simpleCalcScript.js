@@ -1,3 +1,4 @@
+// Referencing DOM elements
 let firstFieldEl = document.getElementById("field1");
 let secondFieldEl = document.getElementById("field2");
 let ResultFieldEl = document.getElementById("ResultField");

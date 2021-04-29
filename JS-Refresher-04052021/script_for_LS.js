@@ -1,3 +1,4 @@
+// Reference to the DOM elements
 let inputFieldEl = document.querySelector(".inputField");
 let addBtnEl = document.querySelector(".addBtn");
 let dynamicFieldEl = document.querySelector(".dynamicField");

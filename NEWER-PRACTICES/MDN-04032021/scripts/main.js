@@ -1,3 +1,4 @@
+// Reference to the DOM elements
 let myImage = document.querySelector('img');
 let myButton = document.querySelector('button');
 let myHeading = document.querySelector('h1');

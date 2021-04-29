@@ -101,16 +101,16 @@
 /////////////////////////////////////////////////////
 console.log("~~~~~ TESTING ONLY ~~~~~");
 
-function makeCounter(x) {
-  let count = 0;
-  return function (y) {
-    return count++ * (x + y);
-  };
-}
-let counter = makeCounter(2);
-console.log(counter(1)); // 0
-console.log(counter(2)); // 4
-console.log(counter(3)); // 10
+//function makeCounter(x) {
+//  let count = 0;
+//  return function (y) {
+//    return count++ * (x + y);
+//  };
+//}
+//let counter = makeCounter(2);
+//console.log(counter(1)); // 0
+//console.log(counter(2)); // 4
+//console.log(counter(3)); // 10
 /////////////////////////////////////////////////////
 console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
