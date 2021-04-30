@@ -58,3 +58,17 @@ console.log(capitalize("GLAne")); //Glane
 //console.log(capitalize("john")); //John
 //console.log(capitalize("BRAVO")); //Bravo
 //console.log(capitalize("BLAne")); //Blane
+
+////////////////////////////////////////////////////
+class Car {
+  constructor(make, model, year) {
+    this.make = make,
+      this.model = model,
+      this.year = year
+  }
+  drive() {
+    console.log(this.make + " " + this.model + " " + this.year + " drive this!");
+  }
+}
+let car1 = new Car("Toyota", "Corolla", 1997);
+car1.drive();
