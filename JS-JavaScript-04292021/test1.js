@@ -23,3 +23,38 @@ for (let i of myAwesomeArray3) {
 }
 
 //////////////////////////////////////////
+let string = "Substring";
+// takes range from starting index 3rd to 4th index
+// RESULT st
+console.log(string.substring(3, 5));
+// takes characters count from starting index 3rd to 5 characters -- includes 3rd index
+// RESULT strin
+console.log(string.substr(3, 5));
+
+//////////////////////////////////////////
+function capitalize(word) {
+  let wordLower = word.substring(1).toLowerCase();
+  //console.log(wordLower);
+  let wordUpper = word.substring(0, 1).toUpperCase();
+  //console.log(wordUpper);
+
+  let combined = wordUpper + wordLower;
+  return combined;
+}
+
+//sample usage
+console.log(capitalize("john")); //John
+console.log(capitalize("BRAVO")); //Bravo
+console.log(capitalize("GLAne")); //Glane
+
+//function capitalize(word){
+//  let wordLower = word.toLowerCase();
+//  let wordUpper = wordLower[0].toUpperCase();
+//  let combined = wordUpper + wordLower.substring(1);
+//  return combined;
+//}
+
+////sample usage
+//console.log(capitalize("john")); //John
+//console.log(capitalize("BRAVO")); //Bravo
+//console.log(capitalize("BLAne")); //Blane
