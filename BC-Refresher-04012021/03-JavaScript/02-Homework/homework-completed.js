@@ -22,7 +22,6 @@ function generatePassword() {
   selectedCharacter();
 }
 
-
 let checkedCharacters = [];
 function selectedCharacter() {
   // Checking if the character option is checked or not
