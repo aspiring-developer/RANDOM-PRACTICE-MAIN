@@ -18,7 +18,6 @@ let upperCaseCharacter = copyCharacter.map(function (eachChar) {
 const specialCharacter = ['!', '#', '$', '%', '&', '?', '@', '_'];
 const numberCharacter = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-
 function generatePassword() {
   selectedCharacter();
 }
@@ -36,7 +35,7 @@ function selectedCharacter() {
   if (upperCheckboxEl.checked) { checkedCharacters.push(upperCaseCharacter); }
   if (numberCheckboxEl.checked) { checkedCharacters.push(numberCharacter); }
   if (specialCheckboxEl.checked) { checkedCharacters.push(specialCharacter); }
-console.log(checkedCharacters)
+  console.log(checkedCharacters)
 
   // Randomising selected characters
   function randomizeCharacter(random) {
