@@ -23,18 +23,18 @@ passwordButtonEl.addEventListener('click', generatePassword);
 
 // Main password generator
 function generatePassword() {
+  let selectedCharacters = [];
   if (!lowerCheckboxEl.checked && !upperCheckboxEl.checked && !numberCheckboxEl.checked && !specialCheckboxEl.checked) {
     alert("You must check at least one character set!");
   }
   else {
+    selectedCharacters.push()
     randomizedCharacters();
     console.log(randomizedCharacters())
   }
 }
 
 // Collection of selected characters
-let selectedCharacters = [];
-
 
 // Randomize selected characters
 function randomizedCharacters() {
