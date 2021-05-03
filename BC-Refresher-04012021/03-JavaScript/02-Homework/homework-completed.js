@@ -40,7 +40,7 @@ function selectedCharacter() {
   function randomizeCharacter(random) {
     let randomizedArray = [];
     for (let i = 0; i < checkedCharacters.length; i++) {
-      randomizedArray.push(random[i].sort(() => Math.random() - .5));
+      randomizedArray.push(random[i].sort(() => Math.random() - 0.5));
     }
     //console.log(randomizedArray);
 
