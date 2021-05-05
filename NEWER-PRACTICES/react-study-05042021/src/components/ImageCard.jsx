@@ -1,12 +1,13 @@
 import React from 'react';
+import data from "../dataFile";
 import ImageProcessor from './ImageProcessor';
-
 const ImageCard = () => {
+  console.log(data)
   return (
     <>
-      <ImageProcessor imageURL="https://picsum.photos/id/1/150/150" imageAlt="Random View 1" imageTitle="Random View 1" imageDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga!" imagePrice="$100" />
-      <ImageProcessor imageURL="https://picsum.photos/id/1026/150/150" imageAlt="Random View 2" imageTitle="Random View 2" imageDescription="Ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga Lorem i!" imagePrice="$200" />
-      <ImageProcessor imageURL="https://picsum.photos/id/1006/150/150" imageAlt="Random View 3" imageTitle="Random View 3" imageDescription="Dolor sit amet consectetur adipisicing elit. Nisi, fuga Lorem ipsum !" imagePrice="$300" />
+    <ImageProcessor imageURL={data[0].imageURL} imageAlt={data[0].imageAlt} imageTitle={data[0].imageTitle} imageDescription={data[0].imageDescription} imagePrice={data[0].imagePrice}  />
+    <ImageProcessor imageURL={data[1].imageURL} imageAlt={data[1].imageAlt} imageTitle={data[1].imageTitle} imageDescription={data[1].imageDescription} imagePrice={data[1].imagePrice}  />
+    <ImageProcessor imageURL={data[2].imageURL} imageAlt={data[2].imageAlt} imageTitle={data[2].imageTitle} imageDescription={data[2].imageDescription} imagePrice={data[2].imagePrice}  />
     </>
   )
 }

@@ -1,3 +1,7 @@
 .heading {
   color: red;
 }
+img {
+  border-radius: 50%;
+  border: 5px solid #c6f876;
+}
