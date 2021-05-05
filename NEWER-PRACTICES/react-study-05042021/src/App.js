@@ -3,9 +3,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const theName = "Someone";
-  let date = new Date();
-  const currentYear = date.getFullYear();
-  const age = 42;
+
   return (
     <>
 
@@ -17,9 +15,7 @@ function App() {
 
       </div>
       <p style={{color: "blue", fontSize: "20px"}}>Created by: {theName} </p>
-      {/*Both ways below are fine...*/}
-      <p>Birth Year: {currentYear - age} </p>
-      <p>Copyright: {date.getFullYear()} </p>
+
 <Footer />
     </>
   );
