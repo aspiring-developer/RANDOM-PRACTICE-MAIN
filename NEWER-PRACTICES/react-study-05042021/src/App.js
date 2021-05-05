@@ -1,13 +1,13 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ImageData from "./components/ImageData";
+import ImageCard from "./components/ImageCard";
 
 function App() {
 
   return (
     <>
       <Header />
-      <ImageData />
+      <ImageCard />
       <Footer />
     </>
   );
