@@ -5,7 +5,12 @@ const data = [
     imageTitle:"Random View 1",
     imageDescription:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, fuga!",
     imagePrice:"$100",
-    imageID: 111
+    imageID: function() {
+      let date = new Date();
+      let newID = date.getTime();
+      //newID = newID + 1;
+      return newID;
+    }
   },
   {
     imageURL:"https://picsum.photos/id/2/150/150",

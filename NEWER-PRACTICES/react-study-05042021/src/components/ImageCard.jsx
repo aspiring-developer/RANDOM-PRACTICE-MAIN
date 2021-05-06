@@ -7,7 +7,7 @@ const ImageCard = () => {
     <>
 
 {data.map(function(eachItem) {
-  return <div style={{backgroundColor: "#f2f2f2", border:"1px solid blue", padding: "10px", margin: "10px",}}> <ImageProcessor imageURL={eachItem.imageURL} imageAlt={eachItem.imageAlt} imageTitle={eachItem.imageTitle} imageDescription={eachItem.imageDescription} imagePrice={eachItem.imagePrice} key={eachItem.imageID}/>
+  return <div style={{backgroundColor: "#f2f2f2", border:"1px solid blue", padding: "10px", margin: "10px",}}> <ImageProcessor imageURL={eachItem.imageURL} imageAlt={eachItem.imageAlt} imageTitle={eachItem.imageTitle} imageDescription={eachItem.imageDescription} imagePrice={eachItem.imagePrice} />
   </div>})}
 
     {/*WITHOUT MAP*/}
