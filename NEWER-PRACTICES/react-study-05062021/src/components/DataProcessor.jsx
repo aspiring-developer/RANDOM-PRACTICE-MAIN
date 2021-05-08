@@ -4,8 +4,8 @@ const DataProcessor = (props) => {
   return (
     <>
       <img src={props.imageURL} alt={props.imageAlt} />
-      <h4>Title: {props.imageTitle}</h4>
-      <h4>Description: {props.imageDescription}</h4>
+      <p>Title: {props.imageTitle}</p>
+      <p>Description: {props.imageDescription}</p>
       <p>Price: {props.imagePrice}</p>
       <p>ID: {props.imageID}</p>
     </>
