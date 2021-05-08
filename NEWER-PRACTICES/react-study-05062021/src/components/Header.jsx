@@ -5,6 +5,8 @@ const Header = () => {
     <>
       <h1 className="heading"> Just a Test Project </h1>
       <h3>This is from header component...</h3>
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+
     </>
   )
 }

@@ -7,6 +7,7 @@ const Footer = () => {
   const theName = "Someone";
   return (
     <>
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
       <p style={{ color: "blue", fontSize: "20px" }}>Created by: {theName} </p>
       <small>This is from footer component...</small>
       <p> Copyright: {currentYear} | Birth Year: {currentYear - age} </p>
