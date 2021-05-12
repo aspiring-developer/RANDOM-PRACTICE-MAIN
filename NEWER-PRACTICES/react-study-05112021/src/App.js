@@ -1,6 +1,8 @@
 import React from 'react';
 import DataProcess from './components/DataProcess';
 import data from './dataFile';
+import StateTest from './components/StateTest';
+import StateTest2 from './components/StateTest2';
 
 const App = () => {
   return (
@@ -11,6 +13,8 @@ const App = () => {
 })
 }
 
+<StateTest />
+<StateTest2 />
 
 
       {/*WITHOUT MAP*/}
