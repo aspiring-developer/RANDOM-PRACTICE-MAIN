@@ -2,14 +2,17 @@ import React from 'react';
 import {useState} from 'react';
 
 const StateTest3 = () => {
-let time = new Date().toLocaleString();
-const [theTime, setTheTime] = useState(time);
+const [newTime, setNewTime] = useState(new Date().toLocaleString());
 
-console.log(time);
-console.log(theTime);
+setTimeout(() => {
+  setNewTime(new Date().toLocaleString());
+}, 1000);
+
+//console.log(time);
+//console.log(theTime);
   return (
     <>
-<h3> Current Time: {theTime} </h3>
+<h3> Current Time: {newTime} </h3>
     </>
   )
 }
