@@ -4,9 +4,9 @@ import { useState } from 'react';
 const StateTest3 = () => {
   const [theTime, setTheTime] = useState(new Date().toLocaleString());
 
-  //setTimeout(() => {
-  //setTheTime(new Date().toLocaleString());
-  //}, 1000);
+  setTimeout(() => {
+  setTheTime(new Date().toLocaleString());
+  }, 1000);
 
   return (
     <>
