@@ -7,7 +7,7 @@ import MainNavigation from './components/layout/MainNavigation';
 
 const App = () => {
   return (
-    <div style={{fontFamily: "Arial"}}>
+    <div style={{ fontFamily: "Arial" }}>
       <MainNavigation />
       <Switch>
         <Route path='/' exact> <AllMeetupsPage /> </Route>
@@ -17,5 +17,4 @@ const App = () => {
     </div>
   )
 }
-
 export default App;
