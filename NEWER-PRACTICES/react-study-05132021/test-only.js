@@ -14,9 +14,9 @@ class Car extends Person {
   //constructor() {
   //  this.model = "Corolla";
   //}
-
-    model = "Corolla";
-    year = 1997;
+  //** IF CONSTRUCTOR IS NOT DEFINED, JS AUTO DEFINES IT. */
+  model = "Corolla";
+  year = 1997;
 
   printModel() {
     console.log(this.model, this.year + " In Car");
@@ -27,15 +27,16 @@ car.printModel();
 
 //.................................................
 class Owner extends Car {
-constructor() {
-  super();
-  this.home = "MyHome";
-}
-printHome() {
-  console.log(this.home + " In Owner");
-}
+  constructor() {
+    super();
+    this.home = "MyHome";
+  }
+  printHome() {
+    console.log(this.home + " In Owner");
+  }
 }
 const owner = new Owner();
 owner.printHome();
 owner.printModel();
 owner.printName();
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>...
