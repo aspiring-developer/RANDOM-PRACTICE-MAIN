@@ -11,11 +11,15 @@ person.printName();
 //........................................
 
 class Car {
-  constructor() {
-    this.model = "Corolla";
-  }
+  //constructor() {
+  //  this.model = "Corolla";
+  //}
+
+    model = "Corolla";
+    year = 1997;
+
   printModel() {
-    console.log(this.model);
+    console.log(this.model, this.year);
   }
 }
 const car = new Car();
