@@ -1,5 +1,6 @@
 import ExpenseItem from './components/ExpenseItem';
 import expenses from './dataFile';
+
 function App() {
   return (
     <>
