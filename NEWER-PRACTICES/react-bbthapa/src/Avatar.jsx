@@ -5,10 +5,10 @@ import 'tachyons';
 
 const Avatar = (props) => {
   return (
-    <div className="avatarStyle ma4 bg-light-purple dib pa4">
-      <img src="https://joeschmoe.io/api/v1/Richardson" alt="Avatar" />
-      <h2 className="">{props.name}</h2>
-      <p className="">{props.position}</p>
+    <div className="avatarStyle tc ma4 bg-light-purple dib pa4">
+      <img src={props.imgURL} alt={props.imgAlt} />
+      <h2>{props.name}</h2>
+      <p>{props.position}</p>
     </div>
   )
 }
