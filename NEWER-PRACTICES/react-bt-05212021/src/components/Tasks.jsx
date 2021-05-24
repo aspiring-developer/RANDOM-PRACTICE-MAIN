@@ -6,13 +6,13 @@ const tasks = [
     reminder: 'true'
   },
   {
-  id: 2,
+    id: 2,
     text: 'Send Money',
     day: 'May 21st @ 6:50pm',
     reminder: 'true'
   },
   {
-  id: 1,
+    id: 3,
     text: 'Purchase Lottery',
     day: 'May 21st @ 7:00pm',
     reminder: 'false'
@@ -20,11 +20,14 @@ const tasks = [
 ]
 
 const Tasks = () => {
-  return (
-    <div>
 
-    </div>
+  return (
+    <>
+      {tasks.map(function (eachTask) {
+        return <li>{eachTask.text} </li>
+      })
+      }
+    </>
   )
 }
-
-export default Tasks
+export default Tasks;
