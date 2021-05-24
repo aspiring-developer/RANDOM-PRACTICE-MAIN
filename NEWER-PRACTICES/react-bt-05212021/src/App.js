@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="container">
       <Header />
-      <Tasks />
+      <Tasks id={Tasks.id} text={Tasks.text} day={Tasks.day} reminder={Tasks.reminder} />
     </div>
   );
 }

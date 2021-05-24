@@ -8,23 +8,22 @@ const tasks = [
   {
     id: 2,
     text: 'Send Money',
-    day: 'May 21st @ 6:50pm',
+    day: 'May 22nd @ 6:50pm',
     reminder: 'true'
   },
   {
     id: 3,
     text: 'Purchase Lottery',
-    day: 'May 21st @ 7:00pm',
+    day: 'May 23rd @ 7:00pm',
     reminder: 'false'
   }
 ]
 
-const Tasks = () => {
-
+const Tasks = (props) => {
   return (
     <>
       {tasks.map(function (eachTask) {
-        return <li>{eachTask.text} </li>
+        return <li key={eachTask.id}>{eachTask.text} {eachTask.day} {eachTask.reminder}  </li>
       })
       }
     </>
