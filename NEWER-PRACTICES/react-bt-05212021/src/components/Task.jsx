@@ -1,11 +1,13 @@
-const Task = (props) => {
+import {FaTimes} from 'react-icons/fa';
+
+  const Task = (props) => {
   return (
 
     <div className='task'>
 
-    {/*<h3>My Task</h3>*/}
-    <h3>{props.eachTask}</h3>
-
+      <h3>{props.taskList.text} <FaTimes style={{color: 'red', pointer: 'cursor'}}/> </h3>
+      <p>{props.taskList.day}</p>
+      <p>{props.taskList.reminder}</p>
 
     </div>
   )
