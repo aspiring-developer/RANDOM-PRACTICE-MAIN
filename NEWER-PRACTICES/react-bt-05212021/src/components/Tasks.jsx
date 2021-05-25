@@ -1,32 +1,15 @@
-const tasks = [
-  {
-    id: 1,
-    text: 'Buy Eggs',
-    day: 'May 21st @ 6:45pm',
-    reminder: 'true'
-  },
-  {
-    id: 2,
-    text: 'Send Money',
-    day: 'May 22nd @ 6:50pm',
-    reminder: 'true'
-  },
-  {
-    id: 3,
-    text: 'Purchase Lottery',
-    day: 'May 23rd @ 7:00pm',
-    reminder: 'false'
-  }
-]
-
+import Task from './Task';
 const Tasks = (props) => {
   return (
     <>
-      {tasks.map(function (eachTask) {
-        return <li key={eachTask.id}>{eachTask.text} {eachTask.day} {eachTask.reminder}  </li>
-      })
-      }
+      {/*{props.tasks.map((eachTask) => (<h2 key={eachTask.id} > { eachTask.text} </h2>)*/}
+      {props.tasks.map((eachTask) => (
+        <Task key={eachTask.id} eachTask={ eachTask.text} />
+      ))}
+
+
     </>
   )
 }
 export default Tasks;
+
