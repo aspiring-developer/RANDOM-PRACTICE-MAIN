@@ -7,7 +7,6 @@ import {FaTimes} from 'react-icons/fa';
 
       <h3>{props.taskList.text} <FaTimes style={{color: 'red', pointer: 'cursor'}}/> </h3>
       <p>{props.taskList.day}</p>
-      <p>{props.taskList.reminder}</p>
 
     </div>
   )
