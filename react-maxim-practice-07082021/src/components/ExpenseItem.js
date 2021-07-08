@@ -1,11 +1,15 @@
 import './ExpenseItem.css';
+import ExpenseDate from './ExpenseDate';
 
 function ExpenseItem(props) {
   return (
     <div className="expense-item">
-      <div>{props.date.toLocaleString()}</div>
-      <div className="expense-item_description"><h2>{props.title}</h2>
-        <div className="expense-item_price">${props.amount}</div>
+      {/*<div>{props.date.toLocaleString()}</div>*/}
+
+       <ExpenseDate date={props.date}/>
+
+      <div className="expense-item__description"><h2>{props.title}</h2>
+        <div className="expense-item__price">${props.amount}</div>
       </div>
     </div>
   )
