@@ -8,16 +8,19 @@ const Home = () => {
     { title: 'Web dev top tips', body: 'This is blog body...', author: 'mario', id: 3 }
   ]);
 
-  const handleDeleteFunc = (targetedId) => {
-    // Filter Returns remaining blogs except the targeted(clicked for delete) one
-    const newBlogs = blogs.filter(filteredBlog => filteredBlog.id !== targetedId)
-    setBlogs(newBlogs);
-  }
   return (
     <div className="home">
-      <BlogList blogsProp={blogs} headerProp="ALL blogs header" handleDeleteProp={handleDeleteFunc} />
+      {/*<BlogList blogsProp={blogs} headerProp="ALL blogs header" handleDeleteProp={handleDeleteFunc} />*/}
+      <BlogList blogsProp={blogs} headerProp="ALL blogs header" />
     </div>
   );
+
+  // Delete Feature (THIS GOES ABOVE THE RETURN BLOCK)
+  //const handleDeleteFunc = (targetedId) => {
+  //  // Filter Returns remaining blogs except the targeted(clicked for delete) one
+  //  const newBlogs = blogs.filter(filteredBlog => filteredBlog.id !== targetedId)
+  //  setBlogs(newBlogs);
+  //}
 }
 
 export default Home;
