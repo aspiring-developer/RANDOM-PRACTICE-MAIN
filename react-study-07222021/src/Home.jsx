@@ -13,12 +13,11 @@ const Home = () => {
     setBlogs(newBlogs);
     console.log(newBlogs);
   }
-
   return (
     <>
       <BlogList blogsProp={blogs} blockHeader="All Blogs Header" deleteHandler={deleteHandler} />
     </>
-  );
+  )
 }
 
 export default Home;
