@@ -8,11 +8,8 @@ const Home = () => {
     { title: 'Web dev top tips', body: 'This is blog body...', author: 'mario', id: 3 }
   ]);
   const deleteHandler = (targetedId) => {
-    const newBlogs = blogs.filter((filteredBlogs) => {
-      //console.log(filteredBlogs);
-      //console.log(targetedId);
-      return filteredBlogs !== targetedId;
-    });
+    const newBlogs = blogs.filter(filteredBlogs => filteredBlogs.id !== targetedId)
+      console.log(targetedId);
     setBlogs(newBlogs);
     console.log(newBlogs);
   }
