@@ -7,15 +7,14 @@ const Home = () => {
     { title: 'Welcome party!', body: 'This is blog body...', author: 'joshi', id: 2 },
     { title: 'Web dev top tips', body: 'This is blog body...', author: 'mario', id: 3 }
   ]);
-  const deleteHandler = (targetedId) => {
-    const newBlogs = blogs.filter(filteredBlogs => filteredBlogs.id !== targetedId)
-      console.log(targetedId);
-    setBlogs(newBlogs);
-    console.log(newBlogs);
+  function deleteHandlerFunction(targetedId) {
+    setBlogs(blogs.filter(function(filteredBlogs) {
+      return filteredBlogs.id !== targetedId;
+    }));
   }
   return (
     <>
-      <BlogList blogsProp={blogs} blockHeader="All Blogs Header" deleteHandler={deleteHandler} />
+      <BlogList blogsProp={blogs} blockHeader="All Blogs Header" deleteHandlerProp={deleteHandlerFunction} />
     </>
   )
 }

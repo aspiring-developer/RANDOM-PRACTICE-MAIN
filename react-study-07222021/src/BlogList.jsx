@@ -8,7 +8,8 @@ const BlogList = (props) => {
           <div key={eachBlog.id}>
             <h2>Blog Title: {eachBlog.title}</h2>
             <p>Blog Author: {eachBlog.author}</p>
-            <button onClick={() =>props.deleteHandler(eachBlog.id)}>Delete Me</button>
+            <button onClick={function() {
+              props.deleteHandlerProp(eachBlog.id)}}>Delete Blog</button>
           </div>
         )
       })}
