@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local Files and Folders
+src/Use-This-HTML-Template-For-Simple-Practice.html
