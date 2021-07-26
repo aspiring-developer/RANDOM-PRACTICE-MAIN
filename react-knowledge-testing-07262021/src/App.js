@@ -5,8 +5,8 @@ import './reset.css';
 
 function App() {
   return (
-    <div className="container-fluid entireDocumentWrapper m-2 p-2">
-    <div className="allComponentsWrapper m-2 p-2">
+    <div className="container-fluid entireDocumentWrapper m-2 p-0">
+    <div className="allComponentsWrapper m-0 p-0">
       <Header />
       <Home />
       <Footer />
