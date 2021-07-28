@@ -28,11 +28,11 @@ const Home = () => {
   );
   function deleteFeatureFunction(targetedId) {
     setBlogs(blogs.filter(function (filteredBlog) {
-
       console.log(targetedId !== filteredBlog.id);
-      return filteredBlog.id !== targetedId;
+     return filteredBlog.id !== targetedId;
     })
-    )}
+    )
+  }
 
   return (
     <>
