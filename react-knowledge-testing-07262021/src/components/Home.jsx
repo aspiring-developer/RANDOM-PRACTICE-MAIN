@@ -8,14 +8,13 @@ const Home = () => {
       return filteredBlog.id !== targetedId;
     }))
   };
+
   useEffect(() => {
-    fetch('http://localhost:8000/blogs')
+    fetch("http://localhost:8000/blogs")
       .then(res => {
-        console.log(res.json)
         return res.json();
       })
       .then((myData) => {
-        console.log(myData)
         setBlogs(myData)
       })
   }, [])
