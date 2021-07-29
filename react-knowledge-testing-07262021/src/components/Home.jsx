@@ -1,27 +1,30 @@
 import BlogList from "./BlogList"
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    { title: "First Blog", blogBody: "Blog body of blog1...", author: "Mike Davis", id: 1 },
-    { title: "Next Blog", blogBody: "Blog body of blog2...", author: "Dan Thomas", id: 2 },
-    { title: "Third Blog", blogBody: "Blog body of blog3...", author: "Chris Clark", id: 3 }
-  ]);
+  const [blogs, setBlogs] = useState(null);
 
   function deleteFeatureFunction(targetedId) {
-    console.log("Working!!!");
-
-      setBlogs(blogs.filter((filteredBlog)=> {
-        return filteredBlog.id !== targetedId;
-      }))
-    }
+    setBlogs(blogs.filter((filteredBlog) => {
+      return filteredBlog.id !== targetedId;
+    }))
+  };
+  useEffect(function () {
+    fetch('http://localhost:3030/blogs')
+      .then(res => {
+        return res.json();
+      })
+      .then((data) => {
+        setBlogs(data);
+      })
+  }, [])
 
 
   return (
     <>
-<BlogList blogProp={blogs} deleteFeatureProp={deleteFeatureFunction}/>
+      {blogs && <BlogList blogProp={blogs} deleteFeatureProp={deleteFeatureFunction} />}
     </>
-   );
+  );
 }
 
 export default Home;

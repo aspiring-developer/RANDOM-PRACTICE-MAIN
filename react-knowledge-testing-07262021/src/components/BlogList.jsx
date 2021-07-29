@@ -9,7 +9,7 @@ const BlogList = (props) => {
             <p>{eachBlog.blogBody}</p>
             <small>{eachBlog.author}</small>
             <br />
-            <button onClick={()=>{props.deleteFeatureProp(eachBlog.id)}} className="btn btn-warning p-2">Delete {eachBlog.title} <i className="fa fa-trash"></i></button>
+            <button onClick={() => { props.deleteFeatureProp(eachBlog.id) }} className="btn btn-warning p-2">Delete {eachBlog.title} <i className="fa fa-trash"></i></button>
           </div>)
       })}
 
