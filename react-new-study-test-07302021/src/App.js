@@ -6,10 +6,10 @@ import './reset.css';
 function App() {
   return (
     <div className="container-fluid entireDocumentWrapper m-2 p-2 text-warning">
-    <div className="allComponentsWrapper m-2 p-2 text-warning">
-      <Header />
-      <Home />
-      <Footer />
+      <div className="allComponentsWrapper m-2 p-2 text-warning">
+        <Header />
+        <Home />
+        <Footer />
       </div>
     </div>
   );
