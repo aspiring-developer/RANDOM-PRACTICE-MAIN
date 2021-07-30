@@ -10,7 +10,7 @@ const BlogList = (props) => {
               <p className="text-secondary pb-3 py-2"> {eachBlog.blogBody} </p>
             </div>
             <div className="col-3 d-flex justify-content-start align-items-center ">
-              <button type="button" onClick={function(){return props.deleteFeatureProps(eachBlog.id)}} className="btn btn-warning " id="frontLgBtn"> Delete </button>
+              <button type="button" onClick={function () { return props.deleteFeatureProps(eachBlog.id) }} className="btn btn-warning " id="frontLgBtn"> Delete </button>
             </div>
           </div>
         )
