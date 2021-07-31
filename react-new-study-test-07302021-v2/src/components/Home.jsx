@@ -1,23 +1,32 @@
 import BlogList from "./BlogList";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   function deleteFeatureFunction(targetedId) {
-    setBlogs(blogs.filter(filteredBlogs => {
+    setBlogs(blogs.filter((filteredBlogs) => {
       return filteredBlogs.id !== targetedId;
     }))
   };
 
   useEffect(() => {
-    fetch('http://localhost:3030/blogs')
-      .then((res) => {
-        return res.json()
-      }).then((data) => {
-        setBlogs(data)
-      })
-  }, []);
-
+    setTimeout(() => {
+      fetch('http://localhost:4000/blogs')
+        .then((res) => {
+          console.log(res)
+          return res.json();
+        })
+        .then((data) => {
+          setBlogs(data);
+          setIsLoading(false);
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+    }, 1000);
+  }, [])
 
   return (
     <>
@@ -28,6 +37,7 @@ const Home = () => {
             {/*<div className="input-group mx-auto">
             <input type="text" className="form-control text-center" />
           </div>*/}
+            {isLoading && <h1>LOADING...</h1>}
             {blogs && <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
           </div>
         </div>
