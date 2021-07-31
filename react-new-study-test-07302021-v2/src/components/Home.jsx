@@ -1,20 +1,28 @@
 import BlogList from "./BlogList";
-import {useState} from 'react';
+import { useState, useEffect } from 'react';
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    { "title": "First Blog", "blogBody": "First blog body... Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, aliquid?", "author": "- Dan Thomas", "id": 100 },
-    { "title": "Next Blog", "blogBody": "Next blog body... Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, aliquid?", "author": "- Chris Clark", "id": 200 },
-    { "title": "Third Blog", "blogBody": "Third blog body... Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, aliquid?", "author": "- George Tsai", "id": 300 }
-  ]);
+  const [blogs, setBlogs] = useState(null);
 
   function deleteFeatureFunction(targetedId) {
-    setBlogs(blogs.filter(filteredId=>{
-      console.log(targetedId !== filteredId.id)
+    setBlogs(blogs.filter(filteredId => {
       return targetedId !== filteredId.id;
 
     }))
-  }
+  };
+
+  useEffect(() => {
+    fetch('http://localhost:5000/blogs')
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setBlogs(data)
+      })
+      .catch((err)=>{
+        console.log(err.message)
+      })
+  }, [])
 
   return (
     <>
@@ -25,7 +33,7 @@ const Home = () => {
             {/*<div className="input-group mx-auto">
             <input type="text" className="form-control text-center" />
           </div>*/}
-            <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction}/>
+            {blogs && <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
           </div>
         </div>
       </section>
