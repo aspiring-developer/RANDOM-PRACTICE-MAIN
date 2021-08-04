@@ -1,20 +1,34 @@
+import BlogList from "./BlogList";
+import { useState, useEffect } from "react";
 const Home = () => {
+  const [blogs, setBlogs] = useState(null);
+
+  // Delete Feature
+  function deleteFeatureFunction(targetedId) {
+    setBlogs(blogs.filter(function (filteredBlogs) {
+      return targetedId !== filteredBlogs.id;
+    }))
+  };
+
+  // useEffect Feature
+  useEffect(() => {
+    fetch('http://localhost:5000/blogs')
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setBlogs(data);
+      })
+  },[])
+
   return (
     <>
-    <section>
-      <div className="row my-4 mainSection1Row">
-        <div className="col p-5 bg-light text-center">
-          <h4 className="text-dark p-3" id="greetingTexts"> This is h4 text field. What do you want here? </h4>
-          <div className="input-group mx-auto">
-            <input type="text" className="form-control text-center" />
-          </div>
-          <p className="text-secondary pb-3 py-2"> This is a paragraph field. </p>
-          <a href="https://google.com"><button type="button" className="btn btn-warning " id="frontLgBtn"> I am a button :) </button> </a>
-        </div>
-      </div>
-    </section>
+      <section>
+        <h3 className="text-dark text-center pt-4" id="greetingTexts"> Blog List </h3>
+        {blogs && <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
+      </section>
     </>
-   );
+  );
 }
 
 export default Home;

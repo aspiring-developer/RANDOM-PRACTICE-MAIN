@@ -1,0 +1,22 @@
+{
+"blogs": [
+  {
+    "title": "First Blog",
+    "author": "Mike Davis",
+    "blogBody": " First Blog Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, quasi!",
+    "id": 100
+  },
+  {
+    "title": "Next Blog",
+    "author": "Dan Thomas",
+    "blogBody": "Second Blog Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, quasi!",
+    "id": 200
+  },
+  {
+    "title": "Third Blog",
+    "author": "Chris Clark",
+    "blogBody": "Third Blog Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, quasi!",
+    "id": 300
+  }
+]
+}
