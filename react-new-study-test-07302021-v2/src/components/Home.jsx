@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   function deleteFeatureFunction(targetedId) {
     setBlogs(blogs.filter(filteredId => {
@@ -12,16 +13,19 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:5000/blogs')
-      .then(res => {
-        return res.json()
-      })
-      .then(data => {
-        setBlogs(data)
-      })
-      .catch((err)=>{
-        console.log(err.message)
-      })
+    setTimeout(() => {
+      fetch('http://localhost:5000/blogs')
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          setBlogs(data)
+          setIsLoading(false)
+        })
+        .catch((err) => {
+          console.log(err.message)
+        })
+    }, 2000);
   }, [])
 
   return (
@@ -33,6 +37,7 @@ const Home = () => {
             {/*<div className="input-group mx-auto">
             <input type="text" className="form-control text-center" />
           </div>*/}
+            {isLoading && <div className="text-danger">LOADING...</div>}
             {blogs && <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
           </div>
         </div>
