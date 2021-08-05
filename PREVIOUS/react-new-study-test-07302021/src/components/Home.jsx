@@ -13,7 +13,7 @@ const Home = () => {
   };
 
   useEffect(function () {
-    fetch('http://localhost:5000/blogs')
+    fetch('http://localhost:8000/blogs')
       .then(function (res) {
         return res.json()
       }).then(function (data) {
