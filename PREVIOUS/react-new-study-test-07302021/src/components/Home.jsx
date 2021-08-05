@@ -2,9 +2,9 @@ import BlogList from './BlogList';
 import React, { useState, useEffect } from 'react';
 
 const Home = () => {
-
   const [blogs, setBlogs] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
@@ -14,15 +14,20 @@ const Home = () => {
   };
 
   useEffect(function () {
-setTimeout(() => {
-  fetch('http://localhost:8000/blogs')
-  .then(function (res) {
-    return res.json();
-  }).then(function (data) {
-    setIsLoading(false);
-    setBlogs(data);
-  })
-}, 2000);
+    setTimeout(() => {
+      fetch('http://localhost:8000/blogs')
+        .then(function (res) {
+          //if (!res.ok) {
+            return res.json();
+          //}
+        }).then(function (data) {
+          setIsLoading(false);
+          setBlogs(data);
+        })
+        .catch(err => {
+          setError(err.message);
+        })
+    }, 1000);
   }, []);
 
   return (
@@ -34,7 +39,7 @@ setTimeout(() => {
             {/*<div className="input-group mx-auto">
             <input type="text" className="form-control text-center" />
           </div>*/}
-          {isLoading && <h1>LOADING...</h1>}
+            {isLoading && <h1>LOADING...</h1>}
             {blogs && <BlogList blogProps={blogs} deleteFeatureProps={deleteFeatureFunction} />}
           </div>
         </div>
