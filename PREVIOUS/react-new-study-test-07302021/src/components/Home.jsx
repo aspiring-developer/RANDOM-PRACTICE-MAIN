@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 const Home = () => {
   const [blogs, setBlogs] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
@@ -25,7 +25,7 @@ const Home = () => {
           setBlogs(data);
         })
         .catch(err => {
-          setError(err.message);
+          //setError(err.message);
         })
     }, 1000);
   }, []);
