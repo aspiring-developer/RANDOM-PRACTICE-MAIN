@@ -1,30 +1,36 @@
 import BlogList from "./BlogList";
+import { useState, useEffect } from 'react';
 const Home = () => {
-  const blogs = [
-    {
-      "title": "First blog title",
-      "author": "Brad Traverse",
-      "blogBody": "First blog body texts: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, vel?"
-    },
-    {
-      "title": "Second blog title",
-      "author": "Net Ninja",
-      "blogBody": "Second blog body texts: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, vel?"
-    },
-    {
-      "title": "Third blog title",
-      "author": "Caleb Curry",
-      "blogBody": "Third blog body texts: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, vel?"
-    }
 
-  ]
+  const [blogs, setBlogs] = useState(null);
+
+  // Delete Feature Function
+  const deleteFunction = (targetedId) => {
+    console.log("Deleting...");
+    setBlogs(blogs.filter(function (filteredBlogs) {
+      return filteredBlogs.id !== targetedId;
+    }))
+  };
+
+  // useEffect hook
+  useEffect(function () {
+    fetch('http://localhost:5000/blogs')
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setBlogs(data);
+      })
+  }, []);
+
+
   return (
     <>
       <section>
         <div className="row my-4 mainSection1Row">
           <div className="col p-5 bg-light">
             <h2 className="text-dark p-3 text-center" id="greetingTexts"> Blog List  </h2>
-            <BlogList blogProp={blogs} />
+            {blogs &&  <BlogList blogProp={blogs} deleteProp={deleteFunction} />}
           </div>
         </div>
       </section>
