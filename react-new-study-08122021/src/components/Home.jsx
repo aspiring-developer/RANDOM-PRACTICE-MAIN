@@ -17,10 +17,11 @@ const Home = () => {
   // useEffect
   useEffect(() => {
     setTimeout(() => {
-      fetch('http://localhost:8000/blogs')
+      fetch('http://localhost:8000/blogss')
         .then(res => {
-          if(!res.ok) {
-            throw Error('Oops, something went wrong!')
+          console.log(res)
+          if (!res.ok) {
+            throw Error('Oops, something went wrong while fetching data!')
           }
           return res.json();
         })
@@ -29,8 +30,9 @@ const Home = () => {
           setIsLoading(false);
         })
         .catch(err => {
-          setIsError(true)
           console.log(err.message);
+          setIsError(err.message);
+          setIsLoading(false);
         })
     }, 1000);
   }, [])
