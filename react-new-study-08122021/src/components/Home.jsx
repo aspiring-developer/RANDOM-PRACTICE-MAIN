@@ -1,7 +1,11 @@
 import BlogList from "./BlogList";
 import { useState, useEffect } from 'react';
 const Home = () => {
-  const [blogs, setBlogs] = useState(null)
+  const [blogs, setBlogs] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(null);
+
+
   // Delete feature
   function deleteFunction(targetedId) {
     console.log("Deleting...");
@@ -12,13 +16,23 @@ const Home = () => {
 
   // useEffect
   useEffect(() => {
-    fetch('http://localhost:8000/blogs')
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setBlogs(data);
-      })
+    setTimeout(() => {
+      fetch('http://localhost:8000/blogs')
+        .then(res => {
+          if(!res.ok) {
+            throw Error('Oops, something went wrong!')
+          }
+          return res.json();
+        })
+        .then(data => {
+          setBlogs(data);
+          setIsLoading(false);
+        })
+        .catch(err => {
+          setIsError(true)
+          console.log(err.message);
+        })
+    }, 1000);
   }, [])
 
   return (
@@ -27,6 +41,8 @@ const Home = () => {
         <div className="row my-4 mainSection1Row">
           <div className="col p-5 bg-light">
             <h2 className="text-dark p-3 text-center"> Blog List  </h2>
+            {isError && <h2 className="text-danger">{isError}</h2>}
+            {isLoading && <h1>Loading...</h1>}
             {blogs && <BlogList blogProp={blogs} deleteProp={deleteFunction} />}
           </div>
         </div>
