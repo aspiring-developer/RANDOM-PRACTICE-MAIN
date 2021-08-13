@@ -1,22 +1,22 @@
 {
   "blogs" : [
-  {
-    "title": "First blog title",
-    "author": "Brad Traverse",
-    "blogBody": "First blog body texts: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, vel?",
-    "id": 100
-  },
-  {
-    "title": "Second blog title",
-    "author": "Net Ninja",
-    "blogBody": "Second blog body texts: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, vel?",
-    "id": 200
-  },
-  {
-    "title": "Third blog title",
-    "author": "Caleb Curry",
-    "blogBody": "Third blog body texts: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit, vel?",
-    "id": 300
-  }
-
-]}
+    {
+      "title": "First Blog Title",
+      "author": "Shaun Net Ninja",
+      "blogBody": "First Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+      "id": 100
+    },
+    {
+      "title": "Second Blog Title",
+      "author": "Brad Traversy",
+      "blogBody": "Second Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+      "id": 200
+    },
+    {
+      "title": "Third Blog Title",
+      "author": "Angela Yau",
+      "blogBody": "Third Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+      "id": 300
+    }
+  ]
+}
