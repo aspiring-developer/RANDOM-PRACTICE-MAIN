@@ -9,7 +9,7 @@ const BlogList = (props) => {
             <p>Body: {eachBlog.blogBody}</p>
           </div>
           <div className="col-2 d-flex align-items-center">
-            <button onClick={() => { props.deleteProp(eachBlog.id) }} className="btn btn-warning">Delete <i className="fa fa-trash"></i></button>
+            <button onClick={2} className="btn btn-warning">Delete <i className="fa fa-trash"></i></button>
           </div>
         </div>
       );
