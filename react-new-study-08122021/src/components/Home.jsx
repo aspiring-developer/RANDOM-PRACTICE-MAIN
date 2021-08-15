@@ -1,36 +1,34 @@
-import BlogList from "./BlogList";
-import useCustom from './useCustom';
+import BlogList from ".BlogList";
+
 const Home = () => {
-
-  const { data, isLoading, isError } = useCustom("http://localhost:8000/blogs");
-
-
-  // Delete feature
-  //function deleteFunction(targetedId) {
-  //  console.log("Deleting...");
-  //  setData(data.filter(filteredBlogs => {
-  //    return filteredBlogs.id !== targetedId;
-  //  }))
-  //};
+  const blogs = [
+      {
+        "title": "First Blog Title",
+        "author": "Shaun Net Ninja",
+        "blogBody": "First Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+        "id": 100
+      },
+      {
+        "title": "Second Blog Title",
+        "author": "Brad Traversy",
+        "blogBody": "Second Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+        "id": 200
+      },
+      {
+        "title": "Third Blog Title",
+        "author": "Angela Yau",
+        "blogBody": "Third Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+        "id": 300
+      }
+    ];
 
 
 
   return (
     <>
-      <section>
-        <div className="row my-4 mainSection1Row">
-          <div className="col p-5 bg-light">
-            <h2 className="text-dark p-3 text-center"> Blog List  </h2>
-            {isError && <h2 className="text-danger">{isError}</h2>}
-            {isLoading && <h1>Loading...</h1>}
-            {/*{data && <BlogList blogProp={data} deleteProp={deleteFunction} />}*/}
-            {data && <BlogList blogProp={data} />}
-          </div>
-        </div>
-      </section>
+<BlogList />
     </>
-  );
+   );
 }
 
 export default Home;
-
