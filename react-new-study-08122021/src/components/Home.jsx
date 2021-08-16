@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <>
-    <h1 className="m-2 my-4 text-center">Blog List</h1>
+    <h1 className="m-2 my-4 text-center text-dark">Blog List</h1>
       <BlogList blogProps={blogs} />
     </>
   );
