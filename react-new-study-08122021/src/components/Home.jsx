@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import BlogList from "./BlogList";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(null)
+  const [blogs, setBlogs] = useState(null);
+  const [isError, setIsError] = useState(null);
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
@@ -14,12 +15,18 @@ const Home = () => {
 
   // useEffect
   useEffect(() => {
-    fetch('http://localhost:8000/blogs')
+    fetch('http://localhost:8000/blogss')
       .then(res => {
+        if(!res.ok) {
+          throw Error("Oops! Something is not working while fetching data!")
+        }
         return res.json();
       })
       .then(data=>{
         setBlogs(data);
+      })
+      .catch(err=>{
+        console.log(err.message);
       })
 
   }, [])
