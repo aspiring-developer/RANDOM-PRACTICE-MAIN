@@ -1,0 +1,23 @@
+{
+  "blogs" :
+  [
+    {
+      "title": "First Blog Title",
+      "author": "Shaun Net Ninja",
+      "blogBody": "First Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+      "id": 100
+    },
+    {
+      "title": "Second Blog Title",
+      "author": "Brad Traversy",
+      "blogBody": "Second Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+      "id": 200
+    },
+    {
+      "title": "Third Blog Title",
+      "author": "Angela Yau",
+      "blogBody": "Third Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
+      "id": 300
+    }
+  ]
+}

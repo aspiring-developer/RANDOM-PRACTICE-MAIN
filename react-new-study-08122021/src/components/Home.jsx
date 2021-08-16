@@ -1,28 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BlogList from "./BlogList";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState(
-    [
-      {
-        "title": "First Blog Title",
-        "author": "Shaun Net Ninja",
-        "blogBody": "First Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
-        "id": 100
-      },
-      {
-        "title": "Second Blog Title",
-        "author": "Brad Traversy",
-        "blogBody": "Second Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
-        "id": 200
-      },
-      {
-        "title": "Third Blog Title",
-        "author": "Angela Yau",
-        "blogBody": "Third Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error!",
-        "id": 300
-      }
-    ])
+  const [blogs, setBlogs] = useState(null)
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
@@ -30,13 +10,24 @@ const Home = () => {
     setBlogs(blogs.filter(filteredBlogs => {
       return filteredBlogs.id !== targetedId;
     }))
-  }
+  };
 
+  // useEffect
+  useEffect(() => {
+    fetch('http://localhost:8000/blogs')
+      .then(res => {
+        return res.json();
+      })
+      .then(data=>{
+        setBlogs(data);
+      })
+
+  }, [])
 
   return (
     <>
       <h1 className="m-2 my-4 text-center text-dark">Blog List</h1>
-      <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />
+      {blogs && <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
     </>
   );
 }
