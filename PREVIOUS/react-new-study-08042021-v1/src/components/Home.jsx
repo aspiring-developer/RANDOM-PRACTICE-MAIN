@@ -7,6 +7,8 @@ const Home = () => {
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
+    console.log("Deleting...");
+
     setBlogs(blogs.filter(function (filteredBlogs) {
       return targetedId !== filteredBlogs.id;
     }))
