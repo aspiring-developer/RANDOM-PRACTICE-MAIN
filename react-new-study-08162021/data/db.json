@@ -1,0 +1,22 @@
+{
+  "blogs" : [
+    {
+      "title": "First Blog Title",
+      "author": "Mike Pence",
+      "blogBody": "First Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, expedita?",
+      "id": 100
+    },
+    {
+      "title": "Second Blog Title",
+      "author": "Joe Biden",
+      "blogBody": "Second Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, expedita?",
+      "id": 200
+    },
+    {
+      "title": "Third Blog Title",
+      "author": "Hillary Clinton",
+      "blogBody": "Third Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, expedita?",
+      "id": 300
+    }
+  ]
+}
