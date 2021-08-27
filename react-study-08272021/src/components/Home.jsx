@@ -3,8 +3,8 @@ import BlogList from "./BlogList";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
-
   const [blogs, setBlogs] = useState(null);
+  const [error, setError] = useState(null);
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
@@ -16,22 +16,30 @@ const Home = () => {
 
   // useEffect
   useEffect(() => {
- setTimeout(() => {
-  fetch('http://localhost:8000/blogs')
-    .then(res=>{
-      return res.json()
-    })
-      .then(data=>{
-        setBlogs(data);
-        setIsLoading(false)
-      })
- }, 2000);
+    setTimeout(() => {
+      fetch('http://localhost:8000/blogs')
+        .then(res => {
+          if(!res.ok){
+            throw Error('Oops! Something went wrong while fetching data')
+          }
+          return res.json()
+        })
+        .then(data => {
+          setBlogs(data);
+          setIsLoading(false)
+        })
+        .catch(err=>{
+          console.log(err.message);
+          setError(true)
+          setIsLoading(false)
+        })
+    }, 2000);
   }, [])
 
   return (
     <>
-      {/*{setIsLoading(isLoading)}*/}
-     {isLoading && <h1 color="red">Loading...</h1>}
+      {isLoading && <h1 color="red">Loading...</h1>}
+      {error && <h1 color="red">{error.message}</h1>}
       {blogs && <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
     </>
   );
