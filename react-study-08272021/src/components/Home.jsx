@@ -19,7 +19,7 @@ const Home = () => {
     setTimeout(() => {
       fetch('http://localhost:8000/blogs')
         .then(res => {
-          if(!res.ok){
+          if (!res.ok) {
             throw Error('Oops! Something went wrong while fetching data')
           }
           return res.json()
@@ -28,7 +28,7 @@ const Home = () => {
           setBlogs(data);
           setIsLoading(false)
         })
-        .catch(err=>{
+        .catch(err => {
           console.log(err.message);
           setError(true)
           setIsLoading(false)
@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <>
       {isLoading && <h1 color="red">Loading...</h1>}
-      {error && <h1 color="red">{error.message}</h1>}
+      {error && <h1 color="red">{error}</h1>}
       {blogs && <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
     </>
   );
