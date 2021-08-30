@@ -20,18 +20,19 @@ const Home = () => {
       fetch('http://localhost:8000/blogs')
         .then(res => {
           if (!res.ok) {
-            throw Error('Oops! Something went wrong while fetching data')
+            throw Error('Oops! Something went wrong while fetching data');
           }
           return res.json()
         })
         .then(data => {
           setBlogs(data);
-          setIsLoading(false)
+          setIsLoading(false);
+          setError(null);
         })
         .catch(err => {
           console.log(err.message);
-          setError(true)
-          setIsLoading(false)
+          setError(err.message);
+          setIsLoading(false);
         })
     }, 2000);
   }, [])
