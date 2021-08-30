@@ -47,7 +47,7 @@ const {isLoading, data, error} = useFetch('http://localhost:8000/blogs');
     <>
       {isLoading && <h1 color="red">Loading...</h1>}
       {error && <h1 color="red">{error}</h1>}
-      {dataDelete && <BlogList blogProps={data} deleteFeatureProp={deleteFeatureFunction} />}
+      {data && <BlogList blogProps={data} deleteFeatureProp={deleteFeatureFunction} />}
       {/*{data && <BlogList blogProps={data}  />}*/}
     </>
   );
