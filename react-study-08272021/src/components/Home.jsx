@@ -10,7 +10,7 @@ const Home = () => {
   const [dataDelete, setDataDelete] = useState(null);
 
 
-const {isLoading, data, error} = useFetch('http://localhost:8000/blogs');
+  const { isLoading, data, error } = useFetch('http://localhost:8000/blogs');
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
