@@ -7,15 +7,15 @@ const Home = () => {
   //const [blogs, setBlogs] = useState(null);
   //const [error, setError] = useState(null);
 
-  const [dataDelete, setDataDelete] = useState(null);
+  //const [dataDelete, setDataDelete] = useState(null);
 
 
-  const { isLoading, data, error } = useFetch('http://localhost:8000/blogs');
+  const { isLoading, data, error, setData } = useFetch('http://localhost:8000/blogs');
 
   // Delete Feature
   function deleteFeatureFunction(targetedId) {
     console.log("Deleting...");
-    setDataDelete(data.filter(filteredBlogs => {
+    setData(data.filter(filteredBlogs => {
       return targetedId !== filteredBlogs.id;
     }))
   };
