@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 
@@ -6,9 +5,6 @@ const Home = () => {
   //const [isLoading, setIsLoading] = useState(true);
   //const [blogs, setBlogs] = useState(null);
   //const [error, setError] = useState(null);
-
-  //const [dataDelete, setDataDelete] = useState(null);
-
 
   const { isLoading, data, error, setData } = useFetch('http://localhost:8000/blogs');
 
