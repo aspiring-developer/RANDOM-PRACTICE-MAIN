@@ -10,10 +10,10 @@ const BlogList = (props) => {
             <small className="text-secondary pb-3 py-2"> Author: {eachBlog.author} </small>
             <p className="text-secondary pb-3 py-2"> Blog Title: {eachBlog.blogBody} </p>
           </div>
-          <div className="col-2"> <button type="button" className="btn btn-warning " id="frontLgBtn"> Delete </button>
+          <div className="col-2"> <button type="button" onClick={()=>{}}className="btn btn-warning " id="frontLgBtn"> Delete </button>
           </div>
         </div>
-     )
+      )
     })
 
   );

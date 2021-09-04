@@ -20,11 +20,14 @@ const Home = () => {
         "blogBody": "Third Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nesciunt?",
         "id": 300
       }
-    ]
+    ];
+
+    // delete feature
+
 
   return (
     <>
-    <BlogList blogProps={blogs} />
+    <BlogList blogProps={blogs} deleteFeatureProp={deleteFeatureFunction}/>
     </>
    );
 }
