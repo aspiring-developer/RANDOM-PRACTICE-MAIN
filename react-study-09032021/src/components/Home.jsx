@@ -15,12 +15,13 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetch('http://localhost:8000/blogs')
+      fetch('http://localhost:8000/blogss')
         .then(res => {
           if (!res.ok) {
             throw Error('Oops! Something went wrong!!')
           }
           return res.json()
+        })
             .then(data => {
               setBlogs(data);
               setLoading(false);
@@ -28,8 +29,9 @@ const Home = () => {
             .catch(err => {
               console.log(err.message);
               setError(err.message);
+              setLoading(false);
             })
-        })
+
     }, 2000);
   }, [])
 
