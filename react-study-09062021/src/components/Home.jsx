@@ -1,50 +1,30 @@
 import BlogList from "./BlogList";
-import useFetch from "./useFetch";
 
 const Home = () => {
-  //const [isLoading, setIsLoading] = useState(true);
-  //const [blogs, setBlogs] = useState(null);
-  //const [error, setError] = useState(null);
+  const blogs = [
+    {
+      "title": "First Blog Title",
+      "author": "Mike Pence",
+      "blogBody": "First Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nesciunt?",
+      "id": 100
+    },
+    {
+      "title": "Second Blog Title",
+      "author": "George Tsai",
+      "blogBody": "Second Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nesciunt?",
+      "id": 200
+    },
+    {
+      "title": "Third Blog Title",
+      "author": "Chris Clark",
+      "blogBody": "Third Blog Body: Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nesciunt?",
+      "id": 300
+    }
+  ]
 
-  const { isLoading, data, error, setData } = useFetch('http://localhost:8000/blogs');
-
-  // Delete Feature
-  function deleteFeatureFunction(targetedId) {
-    console.log("Deleting...");
-    setData(data.filter(filteredBlogs => {
-      return targetedId !== filteredBlogs.id;
-    }))
-  };
-
-  //// useEffect
-  //useEffect(() => {
-  //  setTimeout(() => {
-  //    fetch('http://localhost:8000/blogs')
-  //      .then(res => {
-  //        if (!res.ok) {
-  //          throw Error('Oops! Something went wrong while fetching data');
-  //        }
-  //        return res.json()
-  //      })
-  //      .then(data => {
-  //        setBlogs(data);
-  //        setIsLoading(false);
-  //        setError(null);
-  //      })
-  //      .catch(err => {
-  //        console.log(err.message);
-  //        setError(err.message);
-  //        setIsLoading(false);
-  //      })
-  //  }, 2000);
-  //}, [])
-
-  return (
+    return (
     <>
-      {isLoading && <h1 color="red">Loading...</h1>}
-      {error && <h1 color="red">{error}</h1>}
-      {data && <BlogList blogProps={data} deleteFeatureProp={deleteFeatureFunction} />}
-      {/*{data && <BlogList blogProps={data}  />}*/}
+      <BlogList />
     </>
   );
 }
