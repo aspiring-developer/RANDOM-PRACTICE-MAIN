@@ -22,9 +22,9 @@ const Home = () => {
     }
   ]
 
-    return (
+  return (
     <>
-      <BlogList />
+      <BlogList blogsProp={blogs} />
     </>
   );
 }
