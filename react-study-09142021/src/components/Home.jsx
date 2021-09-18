@@ -8,23 +8,26 @@ export default function Home() {
   //const [error, setError] = useState(null);
 
   // Delete Feature
-const deleteFeatureFunction = (targetedId)=> {
-  console.log("Deleting...");
-  setBlogs(blogs.filter(filteredBlogs=>{
-return targetedId !== filteredBlogs.id;
-  }))
-};
+  const deleteFeatureFunction = (targetedId) => {
+    console.log("Deleting...");
+    setBlogs(blogs.filter(filteredBlogs => {
+      return targetedId !== filteredBlogs.id;
+    }))
+  };
 
-
-
-
-
+  useEffect(() => {
+    fetch('http://localhost:8000')
+      .then(res => {
+        return res.json()
+      })
+      .then(data => {
+        setBlogs(data)
+      })
+  })
   return (
     <div>
-      <BlogPost blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />
-      {setTimeout(() => {
-      return setLoading(<h1>Loading...</h1>)
-    }, 2000)};
+      {blogs && <BlogPost blogProps={blogs} deleteFeatureProp={deleteFeatureFunction} />}
+      {loading && setLoading(<h1>Loading...</h1>)}
     </div>
   )
 }
